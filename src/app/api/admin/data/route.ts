@@ -64,6 +64,9 @@ export async function POST(req: Request) {
       case 'seo':
         db.seo = { ...db.seo, ...data };
         break;
+      case 'mediaAssets':
+        db.mediaAssets = data;
+        break;
       case 'messages':
         db.messages = data;
         break;

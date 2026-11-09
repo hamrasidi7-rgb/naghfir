@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getDatabase } from '@/lib/db';
-import { Calendar, Flag, GraduationCap, Briefcase, Award, CheckCircle2 } from 'lucide-react';
+import { Calendar, Flag, GraduationCap, Briefcase, Award, CheckCircle2, Camera } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const revalidate = 0;
@@ -77,60 +78,90 @@ export default function JourneyPage() {
                 {/* Content Box */}
                 <div className={`ml-16 md:ml-0 md:w-1/2 ${isEven ? 'md:pl-12' : 'md:pr-12'}`}>
                   <div
-                    className={`p-8 rounded-2xl border transition-all duration-300 ${
+                    className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
                       isMilestone
                         ? 'bg-navy text-white shadow-xl border-navy'
                         : 'bg-white text-charcoal hover:shadow-lg border-navy/10'
                     }`}
                   >
-                    <div className="flex items-center justify-between mb-3">
-                      <span
-                        className={`text-xs font-mono font-bold px-3 py-1 rounded-full ${
-                          isMilestone ? 'bg-burgundy text-white' : 'bg-ivory text-navy border border-navy/10'
+                    {item.image && (
+                      <div className="relative h-44 w-full bg-navy/10 overflow-hidden">
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          sizes="400px"
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                        <span
+                          className={`absolute top-3 left-3 text-xs font-mono font-bold px-3 py-1 rounded-full shadow-sm ${
+                            isMilestone ? 'bg-burgundy text-white' : 'bg-white text-navy'
+                          }`}
+                        >
+                          {item.year}
+                        </span>
+                        {item.imageCredit && (
+                          <span className="absolute bottom-2 right-2 text-[10px] text-white/80 bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded flex items-center gap-1">
+                            <Camera className="w-2.5 h-2.5" />
+                            <span>{item.imageCredit}</span>
+                          </span>
+                        )}
+                      </div>
+                    )}
+
+                    <div className="p-7">
+                      {!item.image && (
+                        <div className="flex items-center justify-between mb-3">
+                          <span
+                            className={`text-xs font-mono font-bold px-3 py-1 rounded-full ${
+                              isMilestone ? 'bg-burgundy text-white' : 'bg-ivory text-navy border border-navy/10'
+                            }`}
+                          >
+                            {item.year}
+                          </span>
+                          <span
+                            className={`text-xs font-semibold uppercase tracking-wider ${
+                              isMilestone ? 'text-burgundy-200' : 'text-burgundy'
+                            }`}
+                          >
+                            {item.category}
+                          </span>
+                        </div>
+                      )}
+
+                      <h2
+                        className={`text-2xl font-bold mb-1 ${
+                          isMilestone ? 'text-white' : 'text-navy'
                         }`}
                       >
-                        {item.year}
-                      </span>
-                      <span
-                        className={`text-xs font-semibold uppercase tracking-wider ${
-                          isMilestone ? 'text-burgundy-200' : 'text-burgundy'
+                        {item.title}
+                      </h2>
+
+                      <p
+                        className={`text-xs font-semibold mb-3 ${
+                          isMilestone ? 'text-ivory/70' : 'text-charcoal/60'
                         }`}
                       >
-                        {item.category}
-                      </span>
-                    </div>
+                        {item.subtitle}
+                      </p>
 
-                    <h2
-                      className={`text-2xl font-bold mb-1 ${
-                        isMilestone ? 'text-white' : 'text-navy'
-                      }`}
-                    >
-                      {item.title}
-                    </h2>
+                      <p
+                        className={`text-sm leading-relaxed ${
+                          isMilestone ? 'text-ivory/90' : 'text-charcoal/80'
+                        }`}
+                      >
+                        {item.description}
+                      </p>
 
-                    <p
-                      className={`text-xs font-semibold mb-3 ${
-                        isMilestone ? 'text-ivory/70' : 'text-charcoal/60'
-                      }`}
-                    >
-                      {item.subtitle}
-                    </p>
-
-                    <p
-                      className={`text-sm leading-relaxed ${
-                        isMilestone ? 'text-ivory/90' : 'text-charcoal/80'
-                      }`}
-                    >
-                      {item.description}
-                    </p>
-
-                    <div
-                      className={`mt-4 pt-3 border-t text-[11px] font-mono flex items-center justify-between ${
-                        isMilestone ? 'border-white/10 text-ivory/60' : 'border-navy/10 text-charcoal/50'
-                      }`}
-                    >
-                      <span>Tahap #{item.order}</span>
-                      <span>✓ Catatan Faktual</span>
+                      <div
+                        className={`mt-4 pt-3 border-t text-[11px] font-mono flex items-center justify-between ${
+                          isMilestone ? 'border-white/10 text-ivory/60' : 'border-navy/10 text-charcoal/50'
+                        }`}
+                      >
+                        <span>Tahap #{item.order}</span>
+                        <span>✓ Catatan Faktual</span>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -86,7 +86,22 @@ export default function ProfilePage() {
               <span className="px-3.5 py-1.5 rounded-full bg-ivory text-navy border border-navy/15 text-xs font-semibold">
                 LWPNU Sumenep
               </span>
+              {profile.bphtbAward && (
+                <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-semibold">
+                  🏆 {profile.bphtbAward}
+                </span>
+              )}
             </div>
+
+            {profile.officeAddress && (
+              <div className="p-4 rounded-xl bg-ivory/60 border border-navy/10 text-xs text-charcoal/80 flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-burgundy shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-bold text-navy block">Alamat Kantor Pelayanan Hukum:</span>
+                  <span>{profile.officeAddress}</span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 

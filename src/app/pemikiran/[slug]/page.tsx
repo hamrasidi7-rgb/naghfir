@@ -110,6 +110,24 @@ export default function ArticleDetailPage({ params }: ArticlePageProps) {
               Ditulis oleh: <strong className="text-navy">{article.author}</strong>
             </span>
           </div>
+
+          {article.coverImage && (
+            <div className="mt-8 rounded-2xl overflow-hidden relative aspect-video bg-navy/10 border border-navy/10 shadow-sm">
+              <Image
+                src={article.coverImage}
+                alt={article.title}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 800px"
+                className="object-cover"
+              />
+              {article.coverCredit && (
+                <div className="absolute bottom-2 right-3 text-[10px] text-white/90 bg-black/50 backdrop-blur-sm px-2.5 py-0.5 rounded flex items-center gap-1 font-mono">
+                  <span>📷 {article.coverCredit}</span>
+                </div>
+              )}
+            </div>
+          )}
         </header>
 
         {/* Article Body Content */}

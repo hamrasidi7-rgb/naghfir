@@ -104,7 +104,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
                 />
                 
                 {/* Subtle Gradient Overlay at bottom */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/90 via-navy/40 to-transparent p-5 sm:p-6 text-white">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/95 via-navy/50 to-transparent p-5 sm:p-6 text-white">
                   <span className="text-xs font-semibold uppercase tracking-wider text-burgundy-200">
                     Tokoh Profesional Sumenep
                   </span>
@@ -114,6 +114,11 @@ export default function HeroSection({ profile }: HeroSectionProps) {
                   <p className="text-xs text-ivory/80 mt-1">
                     Desa Campaka, Pasongsongan, Madura
                   </p>
+                  {profile.heroImageCredit && (
+                    <p className="text-[10px] text-ivory/60 mt-2 font-mono flex items-center gap-1">
+                      <span>📷 {profile.heroImageCredit}</span>
+                    </p>
+                  )}
                 </div>
               </div>
 

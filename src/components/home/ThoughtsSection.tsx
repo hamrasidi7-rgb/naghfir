@@ -1,7 +1,8 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArticleItem } from '@/data/initialData';
-import { Calendar, Clock, ArrowRight, ArrowUpRight, BookOpen } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, ArrowUpRight, BookOpen, Camera } from 'lucide-react';
 
 interface ThoughtsSectionProps {
   articles: ArticleItem[];
@@ -42,46 +43,68 @@ export default function ThoughtsSection({ articles }: ThoughtsSectionProps) {
         {/* Magazine Editorial Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           
-          {/* Main Featured Editorial Story */}
+          {/* Main Featured Editorial Story with Image */}
           {featuredArticle && (
-            <article className="lg:col-span-7 flex flex-col justify-between p-8 sm:p-10 rounded-2xl bg-[#FAF7F2] border border-navy/10 hover:shadow-lg transition-all group">
-              <div>
-                <div className="flex items-center gap-4 text-xs font-medium text-charcoal/60 mb-6">
-                  <span className="px-3 py-1 rounded-full bg-burgundy text-white font-semibold uppercase tracking-wider text-[11px]">
+            <article className="lg:col-span-7 flex flex-col justify-between rounded-2xl bg-[#FAF7F2] border border-navy/10 hover:shadow-lg transition-all group overflow-hidden">
+              {featuredArticle.coverImage && (
+                <div className="relative h-64 sm:h-72 w-full bg-navy/10 overflow-hidden">
+                  <Image
+                    src={featuredArticle.coverImage}
+                    alt={featuredArticle.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-burgundy text-white font-semibold uppercase tracking-wider text-[11px] shadow-sm">
                     {featuredArticle.category}
                   </span>
-                  <span className="flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5" />
-                    {featuredArticle.date}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5" />
-                    {featuredArticle.readTime}
-                  </span>
+                  {featuredArticle.coverCredit && (
+                    <span className="absolute bottom-2 right-3 text-[10px] text-white/80 bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded flex items-center gap-1">
+                      <Camera className="w-2.5 h-2.5" />
+                      <span>{featuredArticle.coverCredit}</span>
+                    </span>
+                  )}
+                </div>
+              )}
+
+              <div className="p-8 sm:p-10 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-4 text-xs font-medium text-charcoal/60 mb-4">
+                    <span className="flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {featuredArticle.date}
+                    </span>
+                    <span>·</span>
+                    <span className="flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5" />
+                      {featuredArticle.readTime}
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-navy group-hover:text-burgundy transition-colors leading-tight mb-4">
+                    <Link href={`/pemikiran/${featuredArticle.slug}`}>
+                      {featuredArticle.title}
+                    </Link>
+                  </h3>
+
+                  <p className="text-base text-charcoal/80 leading-relaxed font-sans mb-6">
+                    {featuredArticle.summary}
+                  </p>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy group-hover:text-burgundy transition-colors leading-tight mb-4">
-                  <Link href={`/pemikiran/${featuredArticle.slug}`}>
-                    {featuredArticle.title}
+                <div className="pt-6 border-t border-navy/10 flex items-center justify-between">
+                  <span className="text-xs font-semibold text-charcoal/70">
+                    Penulis: {featuredArticle.author}
+                  </span>
+                  <Link
+                    href={`/pemikiran/${featuredArticle.slug}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-burgundy group-hover:text-navy transition-colors"
+                  >
+                    <span>Baca Selengkapnya</span>
+                    <ArrowUpRight className="w-4 h-4" />
                   </Link>
-                </h3>
-
-                <p className="text-base text-charcoal/80 leading-relaxed font-sans mb-8">
-                  {featuredArticle.summary}
-                </p>
-              </div>
-
-              <div className="pt-6 border-t border-navy/10 flex items-center justify-between">
-                <span className="text-xs font-semibold text-charcoal/70">
-                  Penulis: {featuredArticle.author}
-                </span>
-                <Link
-                  href={`/pemikiran/${featuredArticle.slug}`}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-burgundy group-hover:text-navy transition-colors"
-                >
-                  <span>Baca Selengkapnya</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
+                </div>
               </div>
             </article>
           )}

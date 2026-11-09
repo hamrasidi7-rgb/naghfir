@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ActivityItem } from '@/data/initialData';
 import { Calendar, MapPin, Tag, ArrowRight, Camera } from 'lucide-react';
@@ -8,11 +9,9 @@ interface ActivitiesSectionProps {
 }
 
 export default function ActivitiesSection({ activities }: ActivitiesSectionProps) {
-  // Asymmetrical presentation: 1 large card, 2 medium cards, 2 compact cards
   const sorted = [...activities].sort((a, b) => a.order - b.order);
   const primaryActivity = sorted[0];
   const secondaryActivities = sorted.slice(1, 3);
-  const otherActivities = sorted.slice(3, 5);
 
   return (
     <section className="py-20 lg:py-28 bg-[#FAF7F2] border-b border-navy/10">
@@ -44,73 +43,106 @@ export default function ActivitiesSection({ activities }: ActivitiesSectionProps
         {/* Asymmetrical Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
-          {/* Main Primary Activity (Large Card) */}
+          {/* Main Primary Activity (Large Card with Image) */}
           {primaryActivity && (
-            <div className="lg:col-span-7 bg-navy text-white p-8 sm:p-10 rounded-2xl shadow-xl flex flex-col justify-between">
-              <div>
-                <div className="flex flex-wrap items-center gap-3 mb-6">
-                  <span className="px-3 py-1 rounded-full bg-burgundy text-white text-xs font-semibold uppercase tracking-wider">
+            <div className="lg:col-span-7 bg-navy text-white rounded-2xl shadow-xl flex flex-col justify-between overflow-hidden group">
+              {primaryActivity.image && (
+                <div className="relative h-64 sm:h-72 w-full bg-navy-950 overflow-hidden">
+                  <Image
+                    src={primaryActivity.image}
+                    alt={primaryActivity.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
+                  <span className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-burgundy text-white text-xs font-semibold uppercase tracking-wider shadow-md">
                     {primaryActivity.category}
                   </span>
-                  <span className="inline-flex items-center gap-1.5 text-xs text-ivory/70">
-                    <Calendar className="w-3.5 h-3.5" />
-                    {primaryActivity.date}
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 text-xs text-ivory/70">
-                    <MapPin className="w-3.5 h-3.5" />
-                    {primaryActivity.location}
-                  </span>
+                  {primaryActivity.imageCredit && (
+                    <span className="absolute bottom-3 right-4 text-[10px] text-ivory/80 bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded flex items-center gap-1.5">
+                      <Camera className="w-3 h-3 text-burgundy-300" />
+                      <span>{primaryActivity.imageCredit}</span>
+                    </span>
+                  )}
+                </div>
+              )}
+
+              <div className="p-8 sm:p-10 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex flex-wrap items-center gap-4 text-xs text-ivory/70 mb-4">
+                    <span className="inline-flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {primaryActivity.date}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-burgundy-300" />
+                      {primaryActivity.location}
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl sm:text-3xl font-bold leading-snug mb-4">
+                    {primaryActivity.title}
+                  </h3>
+
+                  <p className="text-sm sm:text-base text-ivory/80 leading-relaxed">
+                    {primaryActivity.description}
+                  </p>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-bold leading-snug mb-4">
-                  {primaryActivity.title}
-                </h3>
-
-                <p className="text-sm sm:text-base text-ivory/80 leading-relaxed">
-                  {primaryActivity.description}
-                </p>
-              </div>
-
-              <div className="pt-8 mt-8 border-t border-white/10 flex items-center justify-between text-xs text-ivory/60">
-                <span className="flex items-center gap-1.5">
-                  <Camera className="w-4 h-4 text-burgundy-300" />
-                  Dokumentasi Lapangan
-                </span>
-                <span className="font-mono text-ivory/40">Faktual & Terarsip</span>
+                <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between text-xs text-ivory/60">
+                  <span className="flex items-center gap-1.5">
+                    <Camera className="w-4 h-4 text-burgundy-300" />
+                    Dokumentasi Terverifikasi
+                  </span>
+                  <span className="font-mono text-ivory/40">Faktual & Terarsip</span>
+                </div>
               </div>
             </div>
           )}
 
-          {/* Secondary Activities (Stacked) */}
+          {/* Secondary Activities (Stacked with Image Thumbnails) */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
             {secondaryActivities.map((item) => (
               <div
                 key={item.id}
-                className="bg-white p-7 rounded-2xl border border-navy/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+                className="bg-white rounded-2xl border border-navy/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group"
               >
-                <div>
-                  <div className="flex items-center justify-between text-xs text-charcoal/60 mb-3">
-                    <span className="font-bold uppercase tracking-wider text-burgundy text-[11px]">
+                {item.image && (
+                  <div className="relative h-44 w-full bg-navy/5 overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                    <span className="absolute top-3 left-3 text-[11px] font-bold uppercase tracking-wider text-burgundy bg-white/95 px-2.5 py-0.5 rounded-full shadow-sm">
                       {item.category}
                     </span>
+                  </div>
+                )}
+
+                <div className="p-6">
+                  <div className="flex items-center justify-between text-xs text-charcoal/60 mb-2">
                     <span className="flex items-center gap-1">
                       <Calendar className="w-3.5 h-3.5" />
                       {item.date}
                     </span>
+                    <span className="flex items-center gap-1">
+                      <MapPin className="w-3.5 h-3.5 text-burgundy" />
+                      {item.location}
+                    </span>
                   </div>
 
-                  <h4 className="text-lg font-bold text-navy mb-2 leading-snug">
+                  <h4 className="text-base sm:text-lg font-bold text-navy mb-2 leading-snug">
                     {item.title}
                   </h4>
 
-                  <p className="text-xs text-charcoal/70 line-clamp-3 leading-relaxed mb-4">
+                  <p className="text-xs text-charcoal/70 line-clamp-2 leading-relaxed">
                     {item.description}
                   </p>
-                </div>
-
-                <div className="pt-3 border-t border-navy/5 flex items-center gap-1.5 text-xs text-charcoal/60">
-                  <MapPin className="w-3.5 h-3.5 text-burgundy" />
-                  <span>{item.location}</span>
                 </div>
               </div>
             ))}

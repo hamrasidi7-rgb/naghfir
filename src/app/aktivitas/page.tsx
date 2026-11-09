@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getDatabase } from '@/lib/db';
 import { Calendar, MapPin, Tag, ArrowRight, Camera } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -75,36 +76,62 @@ export default function ActivitiesPage({
           {activities.map((item) => (
             <div
               key={item.id}
-              className="bg-white p-7 rounded-2xl border border-navy/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+              className="bg-white rounded-2xl border border-navy/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group"
             >
-              <div>
-                <div className="flex items-center justify-between text-xs text-charcoal/60 mb-3">
-                  <span className="font-bold uppercase tracking-wider text-burgundy text-[11px] px-2.5 py-0.5 rounded-full bg-burgundy/10">
+              {item.image && (
+                <div className="relative h-48 w-full bg-navy/10 overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <span className="absolute top-3 left-3 text-[11px] font-bold uppercase tracking-wider text-burgundy bg-white/95 px-3 py-1 rounded-full shadow-sm">
                     {item.category}
                   </span>
-                  <span className="flex items-center gap-1">
-                    <Calendar className="w-3.5 h-3.5" />
-                    {item.date}
-                  </span>
+                  {item.imageCredit && (
+                    <span className="absolute bottom-2 right-3 text-[10px] text-white/80 bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded flex items-center gap-1">
+                      <Camera className="w-2.5 h-2.5" />
+                      <span>{item.imageCredit}</span>
+                    </span>
+                  )}
+                </div>
+              )}
+
+              <div className="p-7 flex-1 flex flex-col justify-between">
+                <div>
+                  {!item.image && (
+                    <div className="flex items-center justify-between text-xs text-charcoal/60 mb-3">
+                      <span className="font-bold uppercase tracking-wider text-burgundy text-[11px] px-2.5 py-0.5 rounded-full bg-burgundy/10">
+                        {item.category}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-3.5 h-3.5" />
+                        {item.date}
+                      </span>
+                    </div>
+                  )}
+
+                  <h2 className="text-xl font-bold text-navy mb-3 leading-snug">
+                    {item.title}
+                  </h2>
+
+                  <p className="text-sm text-charcoal/80 leading-relaxed mb-6">
+                    {item.description}
+                  </p>
                 </div>
 
-                <h2 className="text-xl font-bold text-navy mb-3 leading-snug">
-                  {item.title}
-                </h2>
-
-                <p className="text-sm text-charcoal/80 leading-relaxed mb-6">
-                  {item.description}
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-navy/10 flex items-center justify-between text-xs text-charcoal/70">
-                <span className="flex items-center gap-1.5 font-medium">
-                  <MapPin className="w-3.5 h-3.5 text-burgundy" />
-                  {item.location}
-                </span>
-                <span className="font-mono text-[11px] text-charcoal/40">
-                  Terverifikasi
-                </span>
+                <div className="pt-4 border-t border-navy/10 flex items-center justify-between text-xs text-charcoal/70">
+                  <span className="flex items-center gap-1.5 font-medium">
+                    <MapPin className="w-3.5 h-3.5 text-burgundy" />
+                    {item.location}
+                  </span>
+                  <span className="font-mono text-[11px] text-charcoal/40">
+                    Terverifikasi
+                  </span>
+                </div>
               </div>
             </div>
           ))}

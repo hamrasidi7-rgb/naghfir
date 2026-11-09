@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getDatabase } from '@/lib/db';
-import { Calendar, Clock, ArrowRight, ArrowUpRight, BookOpen, Search } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, ArrowUpRight, BookOpen, Search, Camera } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const revalidate = 0;
@@ -110,42 +111,68 @@ export default function ThoughtsPage({
             {filtered.map((article) => (
               <article
                 key={article.id}
-                className="bg-white rounded-2xl border border-navy/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between p-7 group"
+                className="bg-white rounded-2xl border border-navy/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group"
               >
-                <div>
-                  <div className="flex items-center justify-between text-xs text-charcoal/60 mb-3">
-                    <span className="font-bold uppercase tracking-wider text-burgundy text-[11px]">
+                {article.coverImage && (
+                  <div className="relative h-48 w-full bg-navy/10 overflow-hidden">
+                    <Image
+                      src={article.coverImage}
+                      alt={article.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <span className="absolute top-3 left-3 font-bold uppercase tracking-wider text-burgundy text-[11px] bg-white/95 px-3 py-1 rounded-full shadow-sm">
                       {article.category}
                     </span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      {article.readTime}
-                    </span>
+                    {article.coverCredit && (
+                      <span className="absolute bottom-2 right-3 text-[10px] text-white/80 bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded flex items-center gap-1">
+                        <Camera className="w-2.5 h-2.5" />
+                        <span>{article.coverCredit}</span>
+                      </span>
+                    )}
+                  </div>
+                )}
+
+                <div className="p-7 flex-1 flex flex-col justify-between">
+                  <div>
+                    {!article.coverImage && (
+                      <div className="flex items-center justify-between text-xs text-charcoal/60 mb-3">
+                        <span className="font-bold uppercase tracking-wider text-burgundy text-[11px]">
+                          {article.category}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-3 h-3" />
+                          {article.readTime}
+                        </span>
+                      </div>
+                    )}
+
+                    <h2 className="text-xl font-bold text-navy group-hover:text-burgundy transition-colors leading-snug mb-3">
+                      <Link href={`/pemikiran/${article.slug}`}>
+                        {article.title}
+                      </Link>
+                    </h2>
+
+                    <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed line-clamp-3 mb-6">
+                      {article.summary}
+                    </p>
                   </div>
 
-                  <h2 className="text-xl font-bold text-navy group-hover:text-burgundy transition-colors leading-snug mb-3">
-                    <Link href={`/pemikiran/${article.slug}`}>
-                      {article.title}
+                  <div className="pt-4 border-t border-navy/10 flex items-center justify-between text-xs">
+                    <span className="text-charcoal/60 flex items-center gap-1">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {article.date}
+                    </span>
+                    <Link
+                      href={`/pemikiran/${article.slug}`}
+                      className="inline-flex items-center gap-1 font-bold text-burgundy group-hover:text-navy transition-colors"
+                    >
+                      <span>Baca Artikel</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
-                  </h2>
-
-                  <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed line-clamp-3 mb-6">
-                    {article.summary}
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-navy/10 flex items-center justify-between text-xs">
-                  <span className="text-charcoal/60 flex items-center gap-1">
-                    <Calendar className="w-3.5 h-3.5" />
-                    {article.date}
-                  </span>
-                  <Link
-                    href={`/pemikiran/${article.slug}`}
-                    className="inline-flex items-center gap-1 font-bold text-burgundy group-hover:text-navy transition-colors"
-                  >
-                    <span>Baca Artikel</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                  </div>
                 </div>
               </article>
             ))}
