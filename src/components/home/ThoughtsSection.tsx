@@ -14,29 +14,29 @@ export default function ThoughtsSection({ articles }: ThoughtsSectionProps) {
   const sideArticles = publishedArticles.filter((a) => a.id !== featuredArticle?.id).slice(0, 3);
 
   return (
-    <section className="py-20 lg:py-28 bg-[#FDFCFB] border-b border-navy/10">
+    <section className="py-14 md:py-20 bg-[#FDFCFB] border-b border-navy/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Editorial Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-burgundy mb-3">
-              <span>07 · Pemikiran & Gagasan</span>
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-burgundy mb-2">
+              <span>04 · Pemikiran & Literasi Hukum</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy tracking-tight leading-tight mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-navy tracking-tight leading-tight mb-3">
               Pemikiran dan Gagasan
             </h2>
-            <p className="text-base text-charcoal/80 leading-relaxed font-sans">
-              Diskursus seputar hukum kenotariatan, regulasi agraria, ekonomi syariah, dan masa depan pembangunan masyarakat Madura.
+            <p className="text-sm sm:text-base text-charcoal/80 leading-relaxed font-sans">
+              Diskursus ilmiah seputar hukum kenotariatan, regulasi agraria, ekonomi syariah, dan tata kelola wakaf untuk kemajuan masyarakat Madura.
             </p>
           </div>
 
           <Link
             href="/pemikiran"
-            className="inline-flex items-center gap-2 text-sm font-bold text-burgundy hover:text-navy transition-colors group"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ivory hover:bg-burgundy text-navy hover:text-white text-xs font-bold uppercase tracking-wider border border-navy/15 transition-all shrink-0"
           >
-            <span>Semua Tulisan & Artikel</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <span>Semua Tulisan (7 Kategori)</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 

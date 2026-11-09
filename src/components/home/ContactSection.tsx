@@ -46,18 +46,18 @@ export default function ContactSection({ contact }: ContactSectionProps) {
   };
 
   return (
-    <section id="kontak" className="py-20 lg:py-28 bg-[#FAF7F2] border-b border-navy/10 relative">
+    <section id="kontak" className="py-14 md:py-20 bg-[#FAF7F2] border-b border-navy/10 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-burgundy mb-3">
-            <span>11 · Kontak & Diskusi</span>
+        <div className="max-w-3xl mb-12">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-burgundy mb-2">
+            <span>07 · Kantor & Korespondensi</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy tracking-tight leading-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-navy tracking-tight leading-tight mb-3">
             Terhubung dan Berdiskusi
           </h2>
-          <p className="text-base sm:text-lg text-charcoal/80 leading-relaxed font-sans">
+          <p className="text-sm sm:text-base text-charcoal/80 leading-relaxed font-sans">
             Membuka pintu dialog untuk undangan diskusi keilmuan, kajian regulasi syariah, advokasi kemasyarakatan, serta silaturahmi intelektual.
           </p>
         </div>

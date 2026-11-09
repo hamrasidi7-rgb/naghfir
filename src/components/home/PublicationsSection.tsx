@@ -10,29 +10,29 @@ interface PublicationsSectionProps {
 
 export default function PublicationsSection({ publications }: PublicationsSectionProps) {
   return (
-    <section className="py-20 lg:py-28 bg-[#FDFCFB] border-b border-navy/10">
+    <section className="py-14 md:py-20 bg-[#FDFCFB] border-b border-navy/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-burgundy mb-3">
-              <span>10 · Publikasi Media</span>
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-burgundy mb-2">
+              <span>06 · Publikasi Media & Ilmiah</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy tracking-tight leading-tight mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-navy tracking-tight leading-tight mb-3">
               Publikasi dan Media
             </h2>
-            <p className="text-base text-charcoal/80 leading-relaxed font-sans">
+            <p className="text-sm sm:text-base text-charcoal/80 leading-relaxed font-sans">
               Dokumentasi liputan media pers terverifikasi, publikasi ilmiah, serta karya telaah hukum yang merekam pemikiran dan perjalanan Dr. Naghfir.
             </p>
           </div>
 
           <Link
             href="/publikasi"
-            className="inline-flex items-center gap-2 text-sm font-bold text-burgundy hover:text-navy transition-colors group"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ivory hover:bg-burgundy text-navy hover:text-white text-xs font-bold uppercase tracking-wider border border-navy/15 transition-all shrink-0"
           >
             <span>Semua Publikasi</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 

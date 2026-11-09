@@ -3,11 +3,7 @@ import { getDatabase } from '@/lib/db';
 import HeroSection from '@/components/home/HeroSection';
 import BriefProfileSection from '@/components/home/BriefProfileSection';
 import ThreePillarsSection from '@/components/home/ThreePillarsSection';
-import JourneySection from '@/components/home/JourneySection';
-import ProfessionalSection from '@/components/home/ProfessionalSection';
-import AcademicSection from '@/components/home/AcademicSection';
 import ThoughtsSection from '@/components/home/ThoughtsSection';
-import SocialSection from '@/components/home/SocialSection';
 import ActivitiesSection from '@/components/home/ActivitiesSection';
 import PublicationsSection from '@/components/home/PublicationsSection';
 import ContactSection from '@/components/home/ContactSection';
@@ -19,37 +15,23 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col">
-      {/* 1. Hero dan Identitas Resmi */}
+      {/* 01. Hero dan Identitas Resmi */}
       <HeroSection profile={db.profile} />
 
-      {/* 2. Profil Singkat & Asal-Usul Campaka Pasongsongan */}
+      {/* 02. Sekilas Sosok, Bar Kredensial Faktual (4 Kotak), & CTA ke /perjalanan */}
       <BriefProfileSection profile={db.profile} />
 
-      {/* 3. Tiga Pilar Identitas (A. Profesional Hukum, B. Akademisi, C. Penggerak Sosial) */}
+      {/* 03. Tiga Pilar Dedikasi (Rangkuman Eksekutif Praktisi Hukum, Akademisi, Penggerak Sosial) */}
       <ThreePillarsSection />
 
-      {/* 4. Perjalanan Hidup (Linimasa Terverifikasi 8 Langkah Faktual) */}
-      <JourneySection timeline={db.timeline} />
-
-      {/* 5. Profesional Notaris & PPAT (Kiprah Resmi, Penghargaan BPHTB & Integritas UUJN) */}
-      <ProfessionalSection professional={db.professional} />
-
-      {/* 6. Akademik dan Pendidikan (Pendidikan Tinggi, Doktoral, Catatan Admin S.H. & Sertifikasi) */}
-      <AcademicSection education={db.education} />
-
-      {/* 7. Pemikiran dan Gagasan (Majalah Digital 7 Kategori) */}
+      {/* 04. Pemikiran & Literasi Hukum (Law Review Style - 7 Kategori) */}
       <ThoughtsSection articles={db.articles} />
 
-      {/* 8. Pengabdian Sosial (LWPNU Sumenep & Advokasi Aset Wakaf) */}
-      <SocialSection socialContribution={db.socialContribution} />
-
-      {/* 9. Aktivitas dan Dokumentasi (Dokumenter Faktual) */}
+      {/* 05 & 06. Jejak Aktivitas & Publikasi Pers Terverifikasi */}
       <ActivitiesSection activities={db.activities} />
-
-      {/* 10. Publikasi Media (Liputan Terverifikasi & Karya Ilmiah) */}
       <PublicationsSection publications={db.publications} />
 
-      {/* 11. Kontak & Saluran Dialog Resmi */}
+      {/* 07. Kantor & Saluran Korespondensi Resmi */}
       <ContactSection contact={db.contact} />
     </div>
   );
