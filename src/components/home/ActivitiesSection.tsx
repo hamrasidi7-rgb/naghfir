@@ -21,7 +21,7 @@ export default function ActivitiesSection({ activities }: ActivitiesSectionProps
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-burgundy mb-3">
-              <span>Dokumentasi Kerja Nyata</span>
+              <span>09 · Aktivitas & Dokumentasi</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy tracking-tight leading-tight mb-4">
               Catatan Aktivitas

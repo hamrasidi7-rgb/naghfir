@@ -26,13 +26,13 @@ export default function ThoughtsPage({
 
   const categories = [
     'Semua',
-    'Hukum dan Masyarakat',
-    'Hukum Agraria dan Pertanahan',
+    'Hukum Kenotariatan',
+    'Hukum Pertanahan',
     'Ekonomi Syariah',
-    'Pesantren dan Pendidikan',
     'Wakaf dan Aset Umat',
-    'Kepemudaan',
+    'Pendidikan Pesantren',
     'Pembangunan Sumenep',
+    'Sosial dan Kemasyarakatan',
   ];
 
   let filtered = db.articles.filter((a) => a.status === 'published');

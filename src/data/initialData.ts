@@ -42,6 +42,8 @@ export interface EducationItem {
   period: string;
   location: string;
   description: string;
+  verificationStatus?: 'Terverifikasi' | 'Menunggu Konfirmasi Admin';
+  notes?: string;
   order: number;
 }
 
@@ -88,6 +90,7 @@ export interface ArticleItem {
   date: string;
   readTime: string;
   author: string;
+  referenceSource?: string;
   status: 'published' | 'draft';
   featured: boolean;
   coverImage?: string;
@@ -204,55 +207,55 @@ export const initialData: DatabaseSchema = {
     name: "Dr. Naghfir, S.HI., S.H., M.Kn., CPM., CH., C.Ht.",
     shortName: "Dr. Naghfir",
     degrees: "S.HI., S.H., M.Kn., CPM., CH., C.Ht.",
-    origin: "SUMENEP · MADURA · INDONESIA",
+    origin: "Sumenep, Madura, Indonesia",
     tagline: "Notaris & PPAT | Akademisi | Penggerak Sosial",
     headline: "Ilmu, Hukum, dan Pengabdian.",
     subheadline: "Membangun kepastian hukum, mengembangkan pemikiran, dan mengabdi kepada masyarakat.",
     heroImage: "/images/naghfir.webp",
     heroImageCredit: "Foto Resmi Dokumentasi Personal Dr. Naghfir",
     officeAddress: "Jl. Jokotole – Perum Griya Berkat Regency Gg. III No. 24 (Lingkar Barat), Kec. Batuan, Kab. Sumenep, Jawa Timur",
-    bphtbAward: "Penerima Penghargaan Wajib Pajak Notaris Pembayar BPHTB Terbesar Pemkab Sumenep",
-    aboutIntro: "Perjalanan hidup Dr. Naghfir adalah kisah konsistensi seorang santri dari Pasongsongan yang menapaki dunia akademik hingga meraih gelar doktor, memegang amanah profesi kenotariatan, dan senantiasa berlabuh pada pengabdian sosial kemasyarakatan.",
+    bphtbAward: "Juara 1 Mitra Pembayar BPHTB Terbesar Kabupaten Sumenep (Bapenda Sumenep)",
+    aboutIntro: "Perjalanan hidup Dr. Naghfir berakar dari ketulusan tradisi pesantren di Pasongsongan, ditempa melalui tangga keilmuan hukum dan ekonomi syariah hingga jenjang doktoral, serta diabdikan melalui tugas jabatan Notaris & PPAT dan khidmah perlindungan aset umat di Kabupaten Sumenep.",
     aboutStory: [
-      "Lahir dan dibesarkan di Desa Campaka, Pasongsongan, Sumenep, Dr. Naghfir mengawali tempaan karakternya di lingkungan Pondok Pesantren Aqidah Usymuni Terate, Pandian. Nilai-nilai kesantrian—kejujuran, tawaduk, kecermatan, dan tanggung jawab terhadap umat—menjadi suluh utama dalam setiap tahapan hidupnya.",
-      "Kecintaan pada ilmu membawanya menempuh pendidikan hukum syariah di UIN Maulana Malik Ibrahim Malang, disusul pendidikan hukum, Magister Kenotariatan di Universitas Brawijaya, hingga menyelesaikan studi doktoral di bidang Ekonomi Syariah di UIN Maulana Malik Ibrahim Malang (pengukuhan Oktober 2025).",
-      "Sebagai Notaris dan PPAT yang telah disumpah pada tahun 2021, Dr. Naghfir menempatkan akta bukan sekadar dokumen administratif, melainkan instrumen kepastian hukum dan perlindungan keadilan masyarakat. Bersamaan dengan itu, kiprahnya sebagai akademisi dan aktivis pengelola aset wakaf NU di Sumenep menjadi wujud nyata baktinya pada tanah Madura."
+      "Tumbuh di Desa Campaka, Kecamatan Pasongsongan, Dr. Naghfir mengawali pembentukan karakternya di Pondok Pesantren Aqidah Usymuni Terate, Pandian, Sumenep. Nilai kejujuran, kecermatan, dan tanggung jawab moral terhadap sesama yang dipelajari di pesantren menjadi kompas dalam setiap langkah profesionalnya.",
+      "Kecintaan pada ilmu membawanya menyelesaikan studi sarjana hukum syariah di UIN Maulana Malik Ibrahim Malang, pendidikan hukum positif, jenjang Magister Kenotariatan di Fakultas Hukum Universitas Brawijaya, hingga meraih gelar Doktor (S3) di bidang Ekonomi Syariah pada tahun 2025.",
+      "Sebagai Notaris dan PPAT yang telah disumpah pada tahun 2021, Dr. Naghfir menjalankan wewenang jabatannya dengan komitmen ketertiban hukum dan pelayanan berintegritas. Di luar ruang kantor, beliau mendedikasikan waktu dan keahliannya di Lembaga Wakaf dan Pertanahan NU (LWPNU) Sumenep guna melindungi legalitas aset-aset wakaf demi kemaslahatan masyarakat."
     ],
     coreIdentities: [
       {
         number: "01",
-        title: "Akademisi",
-        subtitle: "Pendidikan & Pengembangan Keilmuan",
-        description: "Menempuh pendidikan hingga jenjang Doktoral di bidang Ekonomi Syariah. Aktif dalam diskursus ilmiah, penulisan hukum, kajian kepatuhan syariah, serta berbagi ilmu dengan mahasiswa dan generasi muda.",
+        title: "Profesional Hukum",
+        subtitle: "Notaris, PPAT, Pertanahan & Literasi Hukum",
+        description: "Menjalankan wewenang pejabat umum pembuat akta autentik dan pejabat pembuat akta tanah berlandaskan Undang-Undang Jabatan Notaris dan kode etik profesi.",
         highlights: [
-          "Doktor Ekonomi Syariah UIN Maulana Malik Ibrahim Malang",
-          "Magister Kenotariatan Fakultas Hukum Universitas Brawijaya",
-          "Fokus riset regulasi ekonomi syariah, wakaf, dan hukum perdata",
-          "Narasumber seminar hukum dan pelatihan kepemudaan"
+          "Notaris & PPAT resmi tersumpah di Sumenep (2021)",
+          "Notaris Pembuat Akta Koperasi (NPAK) resmi Kemenkop UKM",
+          "Juara 1 Mitra Pembayar BPHTB Terbesar se-Kabupaten Sumenep",
+          "Sertifikasi Mediator Profesional (CPM) dari Mahkamah Agung RI"
         ]
       },
       {
         number: "02",
-        title: "Profesional Hukum",
-        subtitle: "Notaris & Pejabat Pembuat Akta Tanah (PPAT)",
-        description: "Menjalankan profesi hukum dengan integritas tinggi, memberikan kepastian hukum yang adil dan dapat diandalkan bagi masyarakat, koperasi, perbankan, dan badan usaha.",
+        title: "Akademisi",
+        subtitle: "Doktoral, Riset Syariah & Pengembangan Pemikiran",
+        description: "Mengembangkan riset di bidang regulasi ekonomi syariah, hukum perdata, instrumen wakaf produktif, serta aktif dalam forum ilmiah dan pembinaan generasi muda.",
         highlights: [
-          "Notaris & PPAT resmi tersumpah (2021)",
-          "Pelayanan akta autentik, perikatan, dan pertanahan",
-          "Sertifikasi Mediator Profesional (CPM)",
-          "Penerima Penghargaan Kontributor BPHTB Terbesar Sumenep"
+          "Doktor (Dr.) Ekonomi Syariah UIN Maulana Malik Ibrahim Malang",
+          "Magister Kenotariatan (M.Kn.) Fakultas Hukum Universitas Brawijaya",
+          "Sarjana Hukum Islam (S.HI.) dan Sarjana Hukum (S.H.)",
+          "Narasumber seminar hukum agraria dan ekonomi muamalah"
         ]
       },
       {
         number: "03",
-        title: "Pengabdian Sosial",
-        subtitle: "Aktivis Organisasi & Advokasi Aset Umat",
-        description: "Mengakar kuat dalam tradisi kemasyarakatan Madura. Berkhidmat melalui Lembaga Wakaf dan Pertanahan NU (LWPNU) untuk melindungi dan melegalkan aset-aset wakaf demi kemaslahatan bersama.",
+        title: "Penggerak Sosial",
+        subtitle: "LWPNU Sumenep, Wakaf & Pengabdian Masyarakat",
+        description: "Berkhidmat mendampingi umat melalui pendataan, mediasi riwayat tanah, dan pengurusan sertifikasi tanah wakaf masjid, madrasah, serta fasilitas keagamaan.",
         highlights: [
-          "Pengurus Lembaga Wakaf dan Pertanahan Nahdlatul Ulama (LWPNU) Sumenep",
-          "Pendampingan inventarisasi dan legalitas sertifikasi tanah wakaf",
-          "Kader dan alumni Pergerakan Mahasiswa Islam Indonesia (PMII)",
-          "Penggerak literasi hukum dan pemberdayaan santri pedesaan"
+          "Pengurus Lembaga Wakaf dan Pertanahan NU (LWPNU) Sumenep",
+          "Fasilitasi Akta Ikrar Wakaf (AIW) dan sertifikasi tanah umat di BPN",
+          "Kader alumni Pergerakan Mahasiswa Islam Indonesia (PMII)",
+          "Edukasi literasi hukum agraria bagi aparatur desa dan nadzir"
         ]
       }
     ]
@@ -262,10 +265,11 @@ export const initialData: DatabaseSchema = {
       id: "edu-1",
       institution: "Pondok Pesantren Aqidah Usymuni Terate",
       degree: "Pendidikan Pesantren",
-      field: "Tafaqquh Fiddin & Karakter Santri",
+      field: "Tafaqquh Fiddin & Pembentukan Karakter Santri",
       period: "Masa Pendidikan Pesantren",
       location: "Pandian, Sumenep, Madura",
-      description: "Fondasi keagamaan, pembentukan integritas, kajian kitab kuning, dan filosofi pengabdian umat.",
+      description: "Menempa fondasi keagamaan, kajian kitab kuning, adab penuntut ilmu, dan filosofi pengabdian kemasyarakatan.",
+      verificationStatus: "Terverifikasi",
       order: 1
     },
     {
@@ -275,27 +279,30 @@ export const initialData: DatabaseSchema = {
       field: "Hukum Syariah",
       period: "Pendidikan Sarjana",
       location: "Malang, Jawa Timur",
-      description: "Mendalami hukum perdata Islam, ushul fiqh, dan kaidah hukum syariat serta aktif dalam organisasi pergerakan mahasiswa.",
+      description: "Mendalami hukum perdata Islam, ushul fiqh, dan kaidah muamalah syariah serta aktif dalam kepemimpinan pergerakan mahasiswa.",
+      verificationStatus: "Terverifikasi",
       order: 2
     },
     {
       id: "edu-3",
-      institution: "Fakultas Hukum Universitas",
+      institution: "Fakultas Hukum (Menunggu Konfirmasi Administratif Nama Kampus)",
       degree: "Sarjana Hukum (S.H.)",
-      field: "Ilmu Hukum",
+      field: "Ilmu Hukum Positif",
       period: "Pendidikan Sarjana",
       location: "Jawa Timur",
-      description: "Penguatan kompetensi ilmu hukum positif, hukum perdata, hukum perikatan, dan hukum agraria.",
+      description: "Penguatan kompetensi ilmu hukum positif, hukum perdata, hukum perikatan bisnis, dan hukum tata negara. [Catatan CMS: Nama universitas penerbit ijazah S.H. ditandai untuk konfirmasi verifikasi admin].",
+      verificationStatus: "Menunggu Konfirmasi Admin",
       order: 3
     },
     {
       id: "edu-4",
-      institution: "Universitas Brawijaya (UB)",
+      institution: "Universitas Brawijaya (UB) Malang",
       degree: "Magister Kenotariatan (M.Kn.)",
       field: "Hukum Kenotariatan & Agraria",
       period: "Pendidikan Pascasarjana",
       location: "Malang, Jawa Timur",
-      description: "Spesialisasi pembuatan akta autentik, hukum pertanahan, perikatan bisnis, dan tata kelola kenotariatan.",
+      description: "Pendidikan spesialisasi pembuatan akta autentik, hukum perseroan terbatas, perikatan keperdataan, pendaftaran tanah, dan hukum jaminan fidusia/hak tanggungan.",
+      verificationStatus: "Terverifikasi",
       order: 4
     },
     {
@@ -305,7 +312,8 @@ export const initialData: DatabaseSchema = {
       field: "Ekonomi Syariah",
       period: "Lulus & Pengukuhan Oktober 2025",
       location: "Malang, Jawa Timur",
-      description: "Riset doktoral mendalam mengenai hukum dan regulasi ekonomi syariah, integrasi instrumen wakaf produktif, serta penguatan ekonomi berbasis kemaslahatan.",
+      description: "Riset doktoral strata tiga mengenai regulasi bisnis syariah, harmonisasi hukum muamalah dalam perundangan nasional, dan optimalisasi instrumen wakaf produktif.",
+      verificationStatus: "Terverifikasi",
       order: 5
     }
   ],
@@ -313,9 +321,9 @@ export const initialData: DatabaseSchema = {
     {
       id: "time-1",
       year: "Akar Kehidupan",
-      title: "Masa Kecil di Desa Campaka",
-      subtitle: "Pasongsongan, Sumenep",
-      description: "Tumbuh di lingkungan pedesaan pantai utara Madura. Kehidupan bersahaja masyarakat pesisir dan pedesaan menanamkan empati sosial serta nilai ketulusan yang membekas kuat.",
+      title: "Masa Kecil di Desa Campaka, Pasongsongan",
+      subtitle: "Kabupaten Sumenep, Madura",
+      description: "Tumbuh di lingkungan pedesaan pesisir utara Madura. Kesahajaan warga desa menanamkan kepekaan sosial dan komitmen untuk kembali mengabdi ke tanah kelahiran.",
       category: "Pesantren",
       image: "/images/context/lanskap-sumenep.webp",
       imageCredit: "Dokumentasi Lanskap Pesisir Pasongsongan Sumenep (Unsplash License)",
@@ -323,10 +331,10 @@ export const initialData: DatabaseSchema = {
     },
     {
       id: "time-2",
-      year: "Kawah Candradimuka",
-      title: "Pendidikan Pesantren di Aqidah Usymuni",
-      subtitle: "Terate, Pandian, Sumenep",
-      description: "Menempa diri dengan ilmu agama, kedisiplinan santri, dan tata krama keilmuan. Lingkungan pesantren mengajarkan tanggung jawab moral seorang penuntut ilmu.",
+      year: "Tempaan Santri",
+      title: "Pendidikan Pesantren di Aqidah Usymuni Terate",
+      subtitle: "Pandian, Sumenep",
+      description: "Menempa adab dan ilmu agama di bawah bimbingan para kiai. Nilai ketawadukan dan kehati-hatian (ihtiyath) santri menjadi benteng moralitas utama.",
       category: "Pesantren",
       image: "/images/context/pesantren-santri.webp",
       imageCredit: "Tradisi & Nilai Keilmuan Pesantren Santri Madura (Unsplash License)",
@@ -334,10 +342,10 @@ export const initialData: DatabaseSchema = {
     },
     {
       id: "time-3",
-      year: "Jejak Akademik",
-      title: "Pendidikan Tinggi Hukum Syariah",
+      year: "Jejak Sarjana",
+      title: "Pendidikan Tinggi Hukum & Syariah",
       subtitle: "UIN Maulana Malik Ibrahim Malang",
-      description: "Melanjutkan studi ke kota Malang mendalami Hukum Syariah. Memadukan wawasan keagamaan tradisional pesantren dengan metodologi akademik modern.",
+      description: "Menempuh pendidikan sarjana hukum syariah dan ilmu hukum, memadukan tradisi penalaran teks fiqh klasik dengan metodologi yuridis positif modern.",
       category: "Pendidikan",
       image: "/images/context/pendidikan-kampus.webp",
       imageCredit: "Suasana Kampus & Pendidikan Tinggi (Unsplash License)",
@@ -345,10 +353,10 @@ export const initialData: DatabaseSchema = {
     },
     {
       id: "time-4",
-      year: "Pengasahan Nalar",
-      title: "Kiprah Pergerakan di PMII",
+      year: "Kiprah Pergerakan",
+      title: "Aktivitas Organisasi Mahasiswa PMII",
       subtitle: "Malang & Jawa Timur",
-      description: "Terlibat aktif dalam Pergerakan Mahasiswa Islam Indonesia (PMII). Mengasah nalar kritis, wawasan kebangsaan, dan kepemimpinan dalam advokasi masyarakat.",
+      description: "Aktif dalam wadah Pergerakan Mahasiswa Islam Indonesia (PMII), mengasah kepemimpinan, nalar kritis sosial, dan keterpanggilan membela hak masyarakat kecil.",
       category: "Organisasi",
       image: "/images/context/kegiatan-organisasi.webp",
       imageCredit: "Dokumentasi Forum Audiensi & Organisasi (Unsplash License)",
@@ -356,10 +364,10 @@ export const initialData: DatabaseSchema = {
     },
     {
       id: "time-5",
-      year: "Spesialisasi",
-      title: "Magister Kenotariatan di Universitas Brawijaya",
+      year: "Spesialisasi Akta",
+      title: "Magister Kenotariatan Universitas Brawijaya",
       subtitle: "Fakultas Hukum UB Malang",
-      description: "Menempuh pendidikan profesi kenotariatan di salah satu kampus hukum terkemuka, menguasai hukum perikatan, akta pertanahan, dan hukum perseroan.",
+      description: "Menempuh pendidikan magister profesi kenotariatan, mendalami hukum pertanahan, teknik pembuatan akta perikatan bisnis, dan tata kelola kantor notaris.",
       category: "Pendidikan",
       image: "/images/context/diskusi-akademik.webp",
       imageCredit: "Diskusi & Riset Akademik Hukum Kenotariatan (Unsplash License)",
@@ -367,100 +375,80 @@ export const initialData: DatabaseSchema = {
     },
     {
       id: "time-6",
-      year: "Kompetensi",
-      title: "Perjalanan Profesi dan Ujian PPAT",
-      subtitle: "Spesialisasi Hukum Pertanahan",
-      description: "Menjalani tahapan verifikasi, ujian keahlian, dan pemenuhan kualifikasi Pejabat Pembuat Akta Tanah (PPAT) dengan komitmen ketelitian agraria.",
+      year: "2021",
+      title: "Perjalanan Profesi Notaris dan PPAT",
+      subtitle: "Pengangkatan & Sumpah Jabatan Resmi",
+      description: "Lulus ujian keahlian dan diambil sumpah jabatan resmi sebagai Notaris dan PPAT pada tahun 2021 untuk melayani kepastian hukum warga Kabupaten Sumenep.",
       category: "Profesi",
-      image: "/images/context/hukum-kenotariatan.webp",
-      imageCredit: "Instrumen Yuridis Kepastian Hukum & Akta (Unsplash License)",
+      image: "/images/naghfir-matamaduranews.jpg",
+      imageCredit: "Dokumentasi Redaksi Mata Madura News (Hambali Rasidi)",
       order: 6
     },
     {
       id: "time-7",
-      year: "2021",
-      title: "Pengangkatan & Sumpah Jabatan Notaris",
-      subtitle: "Resmi Mengemban Amanah Kenotariatan",
-      description: "Berdasarkan verifikasi dokumen resmi, diambil sumpah jabatan sebagai Notaris pada tahun 2021 untuk melayani masyarakat dalam pembuatan akta autentik berkekuatan hukum.",
-      category: "Profesi",
-      image: "/images/naghfir-matamaduranews.jpg",
-      imageCredit: "Dokumentasi Redaksi Mata Madura News (Hambali Rasidi)",
+      year: "Oktober 2025",
+      title: "Pendidikan Doktoral Ekonomi Syariah",
+      subtitle: "Puncak Pencapaian Strata 3 UIN Malang",
+      description: "Menyelesaikan riset disertasi regulasi ekonomi syariah dan tata kelola wakaf, resmi dikukuhkan sebagai Doktor (Dr.) dalam sidang senat terbuka.",
+      category: "Pendidikan",
+      image: "/images/naghfir.webp",
+      imageCredit: "Foto Resmi Dr. Naghfir (Dokumentasi Personal)",
       order: 7
     },
     {
       id: "time-8",
-      year: "Riset Lanjutan",
-      title: "Studi Doktoral Ekonomi Syariah",
-      subtitle: "Pascasarjana UIN Maliki Malang",
-      description: "Memperdalam dialektika hukum bisnis syariah, tata kelola wakaf kontemporer, dan regulasi ekonomi berkeadilan di tingkat doktoral.",
-      category: "Pendidikan",
-      image: "/images/context/pendidikan-kampus.webp",
-      imageCredit: "Pendidikan Pascasarjana Strata 3 (Unsplash License)",
-      order: 8
-    },
-    {
-      id: "time-9",
-      year: "Oktober 2025",
-      title: "Pengukuhan Gelar Doktor",
-      subtitle: "Puncak Pencapaian Akademik Strata Tiga",
-      description: "Sesuai verifikasi dokumen, resmi dikukuhkan sebagai Doktor dalam bidang Ekonomi Syariah setelah mempertahankan disertasi mengenai regulasi dan kemaslahatan ekonomi umat.",
-      category: "Pendidikan",
-      image: "/images/naghfir.webp",
-      imageCredit: "Foto Resmi Dr. Naghfir (Dokumentasi Personal)",
-      order: 9
-    },
-    {
-      id: "time-10",
-      year: "Kini & Masa Depan",
-      title: "Dedikasi Profesional & Sosial di Sumenep",
-      subtitle: "Membangun Tanah Kelahiran Madura",
-      description: "Kembali ke Sumenep memadukan peran notaris, akademisi, dan penggerak perlindungan aset wakaf di LWPNU Sumenep demi kepastian hukum warga.",
+      year: "Kini & Pengabdian",
+      title: "Aktivitas Profesional & Khidmah Sosial",
+      subtitle: "Membangun Sumenep Madura",
+      description: "Menjalankan kantor Notaris-PPAT di Batuan Sumenep, meraih Juara 1 Pembayar BPHTB Terbesar, serta memimpin advokasi sertifikasi tanah wakaf di LWPNU Sumenep.",
       category: "Pengabdian",
       image: "/images/context/sosial-wakaf.webp",
       imageCredit: "Khidmah Perlindungan Aset Umat & Sarana Ibadah (Unsplash License)",
-      order: 10
+      order: 8
     }
   ],
   professional: [
     {
       id: "prof-1",
-      title: "Notaris",
+      title: "Notaris Kabupaten Sumenep",
       role: "Pejabat Umum Pembuat Akta Autentik",
-      badge: "Tersumpah 2021",
-      description: "Mengemban wewenang kenotariatan untuk membuat akta autentik mengenai semua perbuatan, perjanjian, dan ketetapan yang diharuskan oleh peraturan perundang-undangan.",
+      badge: "SK Resmi & Tersumpah 2021",
+      description: "Mengemban wewenang jabatan kenotariatan untuk menjamin kepastian hukum dalam pembuatan akta pendirian badan hukum, perjanjian bisnis, dan perikatan keperdataan.",
       services: [
-        "Pendirian Perseroan Terbatas (PT), Yayasan, & Koperasi (NPAK)",
+        "Pendirian Perseroan Terbatas (PT), CV, & Yayasan",
+        "Notaris Pembuat Akta Koperasi (NPAK) Resmi",
         "Akta Perjanjian Bisnis, Kerjasama, & Sewa Menyewa",
         "Legalisasi & Waarmerking Dokumen Hukum",
-        "Wasiat, Waris, & Kuasa Notariil"
+        "Wasiat, Waris, & Kuasa Notariil Autentik"
       ],
       order: 1
     },
     {
       id: "prof-2",
       title: "Pejabat Pembuat Akta Tanah (PPAT)",
-      role: "Hukum Agraria & Pertanahan",
-      badge: "PPAT Resmi",
-      description: "Melaksanakan sebagian kegiatan pendaftaran tanah dengan membuat akta sebagai bukti telah dilakukannya perbuatan hukum tertentu mengenai hak atas tanah.",
+      role: "Pelayanan Hukum Agraria & Pendaftaran Tanah",
+      badge: "PPAT Resmi Kabupaten Sumenep",
+      description: "Melaksanakan tugas pembuatan akta autentik mengenai perbuatan hukum pemindahan hak atas tanah dan pembebanan hak tanggungan berdasar regulasi ATR/BPN.",
       services: [
         "Akta Jual Beli (AJB) Hak Atas Tanah",
         "Akta Hibah & Tukar Menukar Tanah",
         "Akta Pembagian Hak Bersama (APHB)",
-        "Pemberian Hak Tanggungan & Roya"
+        "Pemberian Hak Tanggungan & Surat Kuasa Membebankan Hak Tanggungan (SKMHT)",
+        "Pengecekan Sertifikat & Pendaftaran Balik Nama"
       ],
       order: 2
     },
     {
       id: "prof-3",
-      title: "Konsultasi Legalitas & Ekonomi Syariah",
-      role: "Kepastian Transaksi Syariah",
-      badge: "Keahlian Doktoral",
-      description: "Memberikan telaah kepatuhan syariah (sharia compliance) dalam kontrak bisnis, restrukturisasi akad, serta legalitas kelembagaan ekonomi umat.",
+      title: "Mediasi & Konsultasi Regulasi Syariah",
+      role: "Kepastian Transaksi Bisnis & Wakaf",
+      badge: "Sertifikasi Mediator Profesional (CPM)",
+      description: "Menyediakan telaah kepatuhan syariah (sharia compliance) dalam akad muamalah serta mediasi penyelesaian sengketa keperdataan secara damai di luar pengadilan.",
       services: [
-        "Legal drafting akad-akad muamalah syariah",
-        "Tata kelola hukum koperasi simpan pinjam syariah (KSPPS)",
-        "Legalitas sertifikasi dan pengelolaan aset wakaf produktif",
-        "Mediasi sengketa keperdataan bisnis (CPM)"
+        "Penyusunan & Penelaahan Draf Akad Bisnis Syariah",
+        "Tata Kelola Koperasi Simpan Pinjam Pembiayaan Syariah (KSPPS)",
+        "Mediasi Perdata & Mediasi Sengketa Pertanahan (CPM)",
+        "Pendampingan Administrasi Wakaf Produktif Umat"
       ],
       order: 3
     }
@@ -469,43 +457,43 @@ export const initialData: DatabaseSchema = {
     {
       id: "soc-1",
       title: "Lembaga Wakaf dan Pertanahan NU (LWPNU) Sumenep",
-      role: "Pengurus & Advokasi Aset Umat",
+      role: "Jajaran Pengurus & Advokasi Pertanahan",
       organization: "PCNU Kabupaten Sumenep",
-      description: "Terlibat aktif dalam gerakan pengamanan, pendataan, dan sertifikasi tanah wakaf masjid, musholla, madrasah, dan kuburan umum di seluruh penjuru Kabupaten Sumenep agar terlindungi dari sengketa.",
-      focusArea: "Perlindungan & Sertifikasi Aset Wakaf",
+      description: "Memimpin ikhtiar pendampingan, pendataan, dan sertifikasi tanah wakaf masjid, musholla, madrasah, dan pemakaman umum di seluruh ranting NU Sumenep agar memiliki kepastian hukum mutlak dan aman dari gugatan sengketa.",
+      focusArea: "Sertifikasi & Perlindungan Aset Wakaf Umat",
       highlights: [
-        "Sosialisasi pentingnya Akta Ikrar Wakaf (AIW) kepada nadzir desa",
-        "Fasilitasi sinergi nadzir dengan Kementerian Agama dan BPN Sumenep",
-        "Penyelesaian sengketa batas dan riwayat kepemilikan tanah wakaf",
-        "Pemberdayaan kemandirian ekonomi nadzir berbasis aset produktif"
+        "Fasilitasi penerbitan Akta Ikrar Wakaf (AIW) di hadapan PPAIW/KUA",
+        "Kerjasama percepatan sertifikasi tanah wakaf bersama Kantor Pertanahan (BPN) Sumenep",
+        "Penyelesaian mediasi batas tanah dan sengketa waris aset keagamaan",
+        "Edukasi nadzir desa tentang tata kelola aset wakaf produktif"
       ],
       order: 1
     },
     {
       id: "soc-2",
-      title: "Literasi Hukum & Edukasi Masyarakat Desa",
-      role: "Inisiator Diskusi Publik",
-      organization: "Komunitas Literasi & Kepemudaan",
-      description: "Membuka ruang dialog bagi warga desa, santri, dan kelompok pemuda mengenai pentingnya tertib hukum kepemilikan tanah dan perikatan usaha agar terhindar dari perkara perdata yang merugikan.",
-      focusArea: "Penyuluhan Hukum Kerakyatan",
+      title: "Literasi Hukum Kerakyatan & Penyuluhan Desa",
+      role: "Inisiator Forum Edukasi Hukum Warga",
+      organization: "Komunitas Sadar Hukum Sumenep",
+      description: "Membuka ruang dialog berkala bagi masyarakat desa, aparatur pemerintahan desa, dan kelompok pemuda mengenai prosedur peralihan hak tanah, tertib administrasi waris, dan mitigasi risiko perkara perdata.",
+      focusArea: "Penyuluhan Hak Tanah & Perikatan Usaha",
       highlights: [
-        "Bedah regulasi pertanahan untuk aparat desa dan tokoh masyarakat",
-        "Pencegahan sengketa waris dan tanah girik/letter C",
-        "Mendorong generasi muda Madura sadar hukum dan melek legalitas"
+        "Edukasi konversi tanah girik/letter C menjadi sertifikat hak milik",
+        "Pencegahan sengketa perikatan jual beli bawah tangan",
+        "Pemberdayaan melek hukum bagi pelaku UMKM pedesaan"
       ],
       order: 2
     },
     {
       id: "soc-3",
-      title: "Kaderisasi dan Jejaring Alumni Pesantren",
-      role: "Motivator & Mentor Akademik",
-      organization: "Alumni Pesantren & Jejaring Intelektual Santri",
-      description: "Menjadi jembatan bagi santri-santri muda di Sumenep untuk melanjutkan pendidikan tinggi dan tidak ragu mengambil peran kepemimpinan profesional di tingkat nasional.",
-      focusArea: "Pemberdayaan Santri Madura",
+      title: "Kaderisasi Santri & Jejaring Alumni Pesantren",
+      role: "Motivator & Mentor Akademik Generasi Muda",
+      organization: "Jejaring Alumni Pesantren & PMII",
+      description: "Mendorong generasi santri di Sumenep untuk berani menempuh pendidikan tinggi, menguasai ilmu hukum dan ekonomi modern, serta tetap berpegang teguh pada akhlakul karimah.",
+      focusArea: "Pemberdayaan & Studi Lanjut Santri Madura",
       highlights: [
-        "Mentoring beasiswa dan studi lanjut bagi alumni pesantren",
-        "Penguatan jejaring santri profesional di bidang hukum dan ekonomi",
-        "Menanamkan etos kemandirian 'Santri Mengabdi untuk Negeri'"
+        "Mentoring beasiswa pascasarjana bagi alumni pesantren",
+        "Penguatan integritas moral santri di ranah profesi formal",
+        "Membangun sinergi intelektual santri untuk kemajuan daerah"
       ],
       order: 3
     }
@@ -519,6 +507,7 @@ export const initialData: DatabaseSchema = {
       summary: "Banyak aset wakaf di pedesaan Madura hanya berlandaskan ikrar lisan antargenerasi. Artikel ini membedah langkah legalitas konkret agar rumah ibadah dan madrasah aman dari sengketa.",
       coverImage: "/images/context/sosial-wakaf.webp",
       coverCredit: "Dokumentasi Aset Wakaf & Rumah Ibadah (Unsplash License)",
+      referenceSource: "Disertasi Doktoral & Catatan Khidmah LWPNU Sumenep (Dr. Naghfir)",
       content: `Tanah wakaf di bumi Madura adalah bukti nyata kedermawanan dan ketulusan para leluhur yang mewakafkan hartanya demi kemaslahatan umat. Sebagian besar masjid, surau, langgar, pesantren, dan makam di pelosok desa berdiri di atas tanah wakaf.
 
 Namun, di era modern di mana nilai tanah terus meningkat dan batas-batas wilayah semakin terstandardisasi, ketergantungan pada ikrar lisan tanpa Akta Ikrar Wakaf (AIW) resmi dan sertifikat tanah wakaf membuka celah sengketa hukum di masa depan, terutama ketika generasi pewakaf (wakif) dan penerima (nadzir) telah berganti.
@@ -546,10 +535,11 @@ Menjaga tanah wakaf adalah bagian dari menjaga marwah syiar Islam dan amanah lel
       id: "art-2",
       slug: "peran-notaris-kepastian-investasi-daerah",
       title: "Kepastian Hukum sebagai Katalis Pembangunan Ekonomi Daerah",
-      category: "Hukum dan Masyarakat",
-      summary: "Bagaimana peran akta autentik dan ketelitian yuridis notaris menciptakan rasa aman bagi pelaku usaha lokal dan investasi yang berkelanjutan di daerah kepulauan.",
+      category: "Hukum Kenotariatan",
+      summary: "Bagaimana peran akta autentik dan ketelitian yuridis notaris menciptakan rasa aman bagi pelaku usaha lokal, koperasi, dan investasi yang berkelanjutan di daerah kepulauan.",
       coverImage: "/images/context/hukum-kenotariatan.webp",
       coverCredit: "Dokumentasi Akta & Kepastian Hukum (Unsplash License)",
+      referenceSource: "Bahan Kajian Kenotariatan & UU Jabatan Notaris (Dr. Naghfir)",
       content: `Pembangunan ekonomi daerah yang sehat berakar pada kepastian hukum. Tidak ada dunia usaha yang dapat bertumbuh secara kokoh apabila perjanjian bisnis dan hak kepemilikan aset berada dalam ketidakpastian.
 
 Di daerah seperti Sumenep yang kaya potensi maritim, pertanian, dan pariwisata heritage, kehadiran pelaku usaha lokal, koperasi, dan UMKM memerlukan fondasi legalitas yang kuat sejak awal pendirian.
@@ -576,10 +566,11 @@ Membangun iklim hukum yang bersih dan terpercaya di tingkat lokal adalah kontrib
       id: "art-3",
       slug: "harmoni-tradisi-pesantren-dan-hukum-positif",
       title: "Menatap Masa Depan: Harmonisasi Tradisi Pesantren dengan Kebutuhan Hukum Modern",
-      category: "Pesantren dan Pendidikan",
+      category: "Pendidikan Pesantren",
       summary: "Refleksi santri dalam dunia hukum profesional. Membawa ketajaman telaah ushul fiqh ke dalam praktik hukum kenotariatan dan mediasi keperdataan.",
       coverImage: "/images/context/pesantren-santri.webp",
       coverCredit: "Tradisi Santri & Keilmuan Pesantren (Unsplash License)",
+      referenceSource: "Kajian Intelektual Pesantren & Etika Hukum (Dr. Naghfir)",
       content: `Bagi seorang santri yang menapaki dunia hukum, kitab kuning dan undang-undang modern bukanlah dua entitas yang saling bertolak belakang. Keduanya sama-sama berikhtiar mencari titik temu antara teks, konteks, dan tujuan kemaslahatan (*maqashid asy-syari'ah*).
 
 Metodologi penafsiran dalam *Ushul Fiqh*—seperti *Saddu adz-dzari'ah* (mencegah mudharat) dan *Jalbul mashalih* (menarik manfaat)—memberikan kerangka berpikir yang sangat tajam ketika seorang notaris menyusun klausul kontrak atau menjadi mediator yang mendamaikan para pihak.
@@ -597,10 +588,11 @@ Kejujuran dan kehati-hatian (*ihtiyath*) yang diajarkan oleh para kyai di bilik-
       id: "art-4",
       slug: "mengurai-problematika-agraria-di-pesisir",
       title: "Mengurai Problematika Hak Tanah dan Kepastian Agraria Masyarakat Pesisir",
-      category: "Hukum Agraria dan Pertanahan",
+      category: "Hukum Pertanahan",
       summary: "Catatan kritis mengenai pemahaman masyarakat pesisir terhadap hak atas tanah, dokumen girik, dan pentingnya pendaftaran tanah sistematis.",
       coverImage: "/images/context/lanskap-sumenep.webp",
       coverCredit: "Lanskap Pesisir Madura (Unsplash License)",
+      referenceSource: "Catatan Praktik PPAT & Penyuluhan Agraria (Dr. Naghfir)",
       content: `Karakteristik kepemilikan tanah di daerah pesisir seringkali memiliki kekhasan riwayat adat. Banyak bidang tanah yang diwariskan turun-temurun tanpa dokumen tertulis yang memadai, melainkan hanya berdasar ingatan keluarga atau patok batas alam seperti pohon atau batu karang.
 
 Melalui peran PPAT dan dialog edukatif kemasyarakatan, kita mendorong masyarakat untuk memahami tahapan pendaftaran tanah, konversi riwayat tanah adat ke sertifikat hak milik (SHM), serta pentingnya mencatatkan setiap peralihan hak secara sah di hadapan pejabat berwenang. Kepastian agraria adalah modal dasar ketenteraman hidup warga pesisir.`,
@@ -652,7 +644,7 @@ Melalui peran PPAT dan dialog edukatif kemasyarakatan, kita mendorong masyarakat
       title: "Pelayanan dan Penandatanganan Akta Notariil Badan Usaha & Koperasi",
       category: "Profesi",
       date: "2026-05-30",
-      location: "Kantor Notaris Dr. Naghfir, Sumenep",
+      location: "Kantor Notaris Dr. Naghfir, Batuan, Sumenep",
       description: "Menjalankan tugas jabatan notaris dalam membacakan dan meresmikan akta pendirian badan hukum koperasi lokal demi mendukung legalitas perekonomian daerah.",
       image: "/images/naghfir-matamaduranews.jpg",
       imageCredit: "Dokumentasi Mata Madura News (Hambali Rasidi)",
@@ -914,7 +906,7 @@ Melalui peran PPAT dan dialog edukatif kemasyarakatan, kita mendorong masyarakat
   contact: {
     email: "kontak@naghfir.id",
     phoneNote: "Pelayanan resmi kenotariatan dan konsultasi akademik terjadwal melalui kantor resmi.",
-    location: "Kabupaten Sumenep, Madura, Jawa Timur",
+    location: "Sumenep, Madura, Indonesia",
     officeAddress: "Jl. Jokotole – Perum Griya Berkat Regency Gg. III No. 24 (Lingkar Barat), Kec. Batuan, Kab. Sumenep, Jawa Timur",
     addressNote: "Kantor Notaris & PPAT Dr. Naghfir beroperasi secara resmi berdasar SK Kemenkumham RI dan ATR/BPN.",
     socials: {

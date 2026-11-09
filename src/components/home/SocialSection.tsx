@@ -11,13 +11,13 @@ export default function SocialSection({ socialContribution }: SocialSectionProps
   const icons = [Landmark, Users, Heart];
 
   return (
-    <section className="py-20 lg:py-28 bg-[#FAF7F2] border-b border-navy/10">
+    <section id="sosial" className="py-20 lg:py-28 bg-[#FAF7F2] border-b border-navy/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-burgundy mb-3">
-            <span>Khidmah Kemasyarakatan</span>
+            <span>08 · Pengabdian Sosial</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy tracking-tight leading-tight mb-4">
             Pengabdian yang Tumbuh dari Akar Masyarakat

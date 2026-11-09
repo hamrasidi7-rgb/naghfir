@@ -57,7 +57,7 @@ export default function JourneyPage() {
           {timeline.map((item, index) => {
             const isEven = index % 2 === 0;
             const Icon = getCategoryIcon(item.category);
-            const isMilestone = item.order === 7 || item.order === 9; // Notaris 2021 & Doktor 2025
+            const isMilestone = item.order === 5 || item.order === 7; // Notaris 2021 & Doktor 2025
 
             return (
               <div

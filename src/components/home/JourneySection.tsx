@@ -79,7 +79,7 @@ export default function JourneySection({ timeline }: JourneySectionProps) {
         >
           {timeline.map((item, index) => {
             const Icon = getCategoryIcon(item.category);
-            const isMilestoneHighlight = item.order === 7 || item.order === 9; // 2021 Notaris & 2025 Doktor
+            const isMilestoneHighlight = item.order === 5 || item.order === 7; // 2021 Notaris & 2025 Doktor
 
             return (
               <div
@@ -196,7 +196,7 @@ export default function JourneySection({ timeline }: JourneySectionProps) {
         <div className="md:hidden space-y-6 relative before:absolute before:inset-0 before:left-5 before:w-0.5 before:bg-navy/15">
           {timeline.map((item) => {
             const Icon = getCategoryIcon(item.category);
-            const isMilestoneHighlight = item.order === 7 || item.order === 9;
+            const isMilestoneHighlight = item.order === 5 || item.order === 7;
 
             return (
               <div key={item.id} className="relative pl-12">

@@ -52,7 +52,7 @@ export default function ContactSection({ contact }: ContactSectionProps) {
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-burgundy mb-3">
-            <span>Komunikasi & Kolaborasi</span>
+            <span>11 · Kontak & Diskusi</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy tracking-tight leading-tight mb-4">
             Terhubung dan Berdiskusi
