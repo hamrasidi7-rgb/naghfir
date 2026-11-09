@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-manrope: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --color-burgundy: #762B30;
+  --color-navy: #17243A;
+  --color-ivory: #F5F1E9;
+  --color-white: #FFFFFF;
+  --color-charcoal: #252525;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-manrope);
+  background-color: #FDFCFB;
+  color: #252525;
+}
+
+/* Custom editorial typography & aesthetics */
+.editorial-lead {
+  font-feature-settings: "pnum" 1, "lnum" 1;
+  letter-spacing: -0.015em;
+}
+
+.heading-editorial {
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  color: #17243A;
+}
+
+/* Elegant scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F1E9;
+}
+::-webkit-scrollbar-thumb {
+  background: #762B30;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5D1F23;
+}
+
+/* Soft transition effects */
+.transition-editorial {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Subtle image card styling */
+.editorial-border {
+  border: 1px solid rgba(23, 36, 58, 0.08);
+}
