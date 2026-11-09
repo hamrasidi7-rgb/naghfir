@@ -70,7 +70,7 @@ export default function RootLayout({
     '@type': 'Person',
     name: profile.name,
     alternateName: profile.shortName,
-    jobTitle: ['Notaris', 'PPAT', 'Dosen', 'Akademisi Hukum'],
+    jobTitle: ['Notaris & PPAT', 'Akademisi', 'Penggerak Sosial'],
     description: profile.subheadline,
     homeLocation: {
       '@type': 'Place',

@@ -9,9 +9,12 @@ Website resmi dan portal editorial intelektual untuk:
 
 ## 1. Konsep & Filosofi Branding
 
-- **Tema Utama:** *"Dari Pesantren, Mengabdi untuk Masyarakat."*
-- **Pendekatan:** Editorial modern, intelektual publik, berwibawa, dan berkarakter lokal Madura.
-- **Nilai Karakter:** Santri & alumni pesantren, akademisi doktor ekonomi syariah, praktisi hukum terpercaya (Notaris & PPAT sejak 2021), serta pejuang legalitas aset umat & wakaf (LWPNU Sumenep).
+- **Identitas Profesional:** Notaris & PPAT | Akademisi | Penggerak Sosial
+- **Headline Utama:** *"Ilmu, Hukum, dan Pengabdian."*
+- **Deskripsi:** Membangun kepastian hukum, mengembangkan pemikiran, dan mengabdi kepada masyarakat.
+- **Lokasi Identitas:** SUMENEP · MADURA · INDONESIA
+- **Pendekatan:** Editorial modern, intelektual publik, berwibawa, minimalis, dan elegan.
+- **Pilar Utama:** Notaris & PPAT (SK Kemenkumham & ATR/BPN sejak 2021), akademisi doktor ekonomi syariah, serta pejuang legalitas aset umat & wakaf (LWPNU Sumenep).
 
 ---
 

@@ -30,11 +30,17 @@ export default function ProfilePage() {
             <span>/</span>
             <span>Profil Tokoh</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-navy tracking-tight mb-4">
-            Biografi & Nilai Pengabdian
+          <h1 className="text-4xl sm:text-5xl font-black text-navy tracking-tight mb-2">
+            Dr. Naghfir
           </h1>
-          <p className="text-lg text-charcoal/80 max-w-3xl font-serif italic">
-            &ldquo;Dari Pesantren, Mengabdi untuk Masyarakat.&rdquo;
+          <p className="text-sm sm:text-base font-bold text-burgundy mb-3 uppercase tracking-wider">
+            Notaris & PPAT | Akademisi | Penggerak Sosial
+          </p>
+          <p className="text-xl sm:text-2xl text-navy max-w-3xl font-serif font-bold italic mb-2">
+            &ldquo;Ilmu, Hukum, dan Pengabdian.&rdquo;
+          </p>
+          <p className="text-base text-charcoal/80 max-w-2xl font-sans">
+            Membangun kepastian hukum, mengembangkan pemikiran, dan mengabdi kepada masyarakat.
           </p>
         </div>
 

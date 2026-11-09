@@ -53,8 +53,8 @@ export default function Header() {
             <span className="font-sans text-2xl font-black tracking-widest text-navy group-hover:text-burgundy transition-colors uppercase">
               NAGHFIR
             </span>
-            <span className="text-[10px] uppercase tracking-wider text-charcoal/60 font-medium">
-              Santri · Akademisi · Notaris
+            <span className="text-[10px] uppercase tracking-wider text-charcoal/60 font-semibold">
+              Notaris & PPAT · Akademisi · Penggerak Sosial
             </span>
           </Link>
 

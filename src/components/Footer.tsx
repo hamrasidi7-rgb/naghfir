@@ -23,20 +23,23 @@ export default function Footer() {
               <span className="font-sans text-2xl lg:text-3xl font-black tracking-widest text-white uppercase">
                 NAGHFIR
               </span>
-              <p className="text-sm font-medium text-ivory/70">
+              <p className="text-sm font-semibold text-burgundy-200">
                 Dr. Naghfir, S.HI., S.H., M.Kn., CPM., CH., C.Ht.
               </p>
+              <p className="text-xs uppercase tracking-widest text-ivory/60 font-semibold">
+                Notaris & PPAT | Akademisi | Penggerak Sosial
+              </p>
             </div>
-            <p className="text-base text-ivory/90 italic font-serif leading-relaxed max-w-md">
-              &ldquo;Ilmu, profesi, dan pengabdian untuk masyarakat.&rdquo;
+            <p className="text-xl text-white font-bold tracking-tight">
+              &ldquo;Ilmu, Hukum, dan Pengabdian.&rdquo;
             </p>
-            <p className="text-sm text-ivory/70 leading-relaxed max-w-md">
-              Membangun kepastian hukum, merawat nilai-nilai pesantren, dan berkhidmat untuk kemaslahatan masyarakat di tanah kelahiran, Sumenep, Madura.
+            <p className="text-sm text-ivory/80 leading-relaxed max-w-md font-sans">
+              Membangun kepastian hukum, mengembangkan pemikiran, dan mengabdi kepada masyarakat.
             </p>
-            <div className="flex items-center gap-4 pt-2 text-xs text-ivory/60">
-              <span className="inline-flex items-center gap-1.5">
+            <div className="flex items-center gap-4 pt-2 text-xs text-ivory/70 font-semibold tracking-wider uppercase">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/10">
                 <MapPin className="w-3.5 h-3.5 text-burgundy-300" />
-                Sumenep, Madura, Jawa Timur
+                SUMENEP · MADURA · INDONESIA
               </span>
             </div>
           </div>
