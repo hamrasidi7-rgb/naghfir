@@ -33,7 +33,7 @@ export default function AcademicSection({ education }: AcademicSectionProps) {
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-burgundy mb-3">
-            <span>06 · Akademik & Pendidikan</span>
+            <span>Akademik & Pendidikan</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy tracking-tight leading-tight mb-4">
             Ilmu sebagai Fondasi Integritas & Pengabdian

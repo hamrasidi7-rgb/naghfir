@@ -16,7 +16,7 @@ export default function ProfessionalSection({ professional }: ProfessionalSectio
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-burgundy mb-3">
-            <span>05 · Kiprah Notaris & PPAT</span>
+            <span>Kiprah Notaris & PPAT</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy tracking-tight leading-tight mb-4">
             Kepastian Hukum, Keadilan Agraria, dan Integritas Jabatan

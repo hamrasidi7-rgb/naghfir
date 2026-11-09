@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArticleItem } from '@/data/initialData';
-import { Calendar, Clock, ArrowRight, ArrowUpRight, BookOpen, Camera } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface ThoughtsSectionProps {
   articles: ArticleItem[];
@@ -14,139 +14,99 @@ export default function ThoughtsSection({ articles }: ThoughtsSectionProps) {
   const sideArticles = publishedArticles.filter((a) => a.id !== featuredArticle?.id).slice(0, 3);
 
   return (
-    <section className="py-14 md:py-20 bg-[#FDFCFB] border-b border-navy/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-24 bg-[#FAF8F5] border-b border-[#252525]/15">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Editorial Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-burgundy mb-2">
-              <span>04 · Pemikiran & Literasi Hukum</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-navy tracking-tight leading-tight mb-3">
+        {/* Editorial Header tanpa Nomor Birokratis */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-6 mb-10 border-b border-[#252525]/15 gap-4">
+          <div>
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-burgundy block mb-2">
+              Esai & Kolom Hukum
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black text-navy tracking-tight">
               Pemikiran dan Gagasan
             </h2>
-            <p className="text-sm sm:text-base text-charcoal/80 leading-relaxed font-sans">
-              Diskursus ilmiah seputar hukum kenotariatan, regulasi agraria, ekonomi syariah, dan tata kelola wakaf untuk kemajuan masyarakat Madura.
-            </p>
           </div>
 
           <Link
             href="/pemikiran"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ivory hover:bg-burgundy text-navy hover:text-white text-xs font-bold uppercase tracking-wider border border-navy/15 transition-all shrink-0"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-navy hover:text-burgundy transition-colors shrink-0"
           >
-            <span>Semua Tulisan (7 Kategori)</span>
+            <span>Semua Tulisan & Gagasan</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
-        {/* Magazine Editorial Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        {/* Noah Feldman Style Pure Editorial Split (No Boxy Cards) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           
-          {/* Main Featured Editorial Story with Image */}
+          {/* Sisi Kiri (6 Kolom): 1 Artikel Utama (Featured Essay) */}
           {featuredArticle && (
-            <article className="lg:col-span-7 flex flex-col justify-between rounded-2xl bg-[#FAF7F2] border border-navy/10 hover:shadow-lg transition-all group overflow-hidden">
+            <article className="lg:col-span-6 group">
               {featuredArticle.coverImage && (
-                <div className="relative h-64 sm:h-72 w-full bg-navy/10 overflow-hidden">
-                  <Image
-                    src={featuredArticle.coverImage}
-                    alt={featuredArticle.title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 60vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-burgundy text-white font-semibold uppercase tracking-wider text-[11px] shadow-sm">
-                    {featuredArticle.category}
-                  </span>
-                  {featuredArticle.coverCredit && (
-                    <span className="absolute bottom-2 right-3 text-[10px] text-white/80 bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded flex items-center gap-1">
-                      <Camera className="w-2.5 h-2.5" />
-                      <span>{featuredArticle.coverCredit}</span>
-                    </span>
-                  )}
-                </div>
+                <Link href={`/pemikiran/${featuredArticle.slug}`} className="block mb-5 overflow-hidden rounded-lg bg-ivory border border-[#252525]/10">
+                  <div className="relative h-60 sm:h-72 w-full">
+                    <Image
+                      src={featuredArticle.coverImage}
+                      alt={featuredArticle.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover group-hover:scale-102 transition-transform duration-700"
+                    />
+                  </div>
+                </Link>
               )}
 
-              <div className="p-8 sm:p-10 flex-1 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-4 text-xs font-medium text-charcoal/60 mb-4">
-                    <span className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5" />
-                      {featuredArticle.date}
-                    </span>
-                    <span>·</span>
-                    <span className="flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5" />
-                      {featuredArticle.readTime}
-                    </span>
-                  </div>
-
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-navy group-hover:text-burgundy transition-colors leading-tight mb-4">
-                    <Link href={`/pemikiran/${featuredArticle.slug}`}>
-                      {featuredArticle.title}
-                    </Link>
-                  </h3>
-
-                  <p className="text-base text-charcoal/80 leading-relaxed font-sans mb-6">
-                    {featuredArticle.summary}
-                  </p>
-                </div>
-
-                <div className="pt-6 border-t border-navy/10 flex items-center justify-between">
-                  <span className="text-xs font-semibold text-charcoal/70">
-                    Penulis: {featuredArticle.author}
-                  </span>
-                  <Link
-                    href={`/pemikiran/${featuredArticle.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-burgundy group-hover:text-navy transition-colors"
-                  >
-                    <span>Baca Selengkapnya</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </Link>
-                </div>
+              <div className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-widest text-burgundy mb-2.5">
+                <span>{featuredArticle.category}</span>
+                <span className="text-charcoal/30">·</span>
+                <span className="font-normal text-charcoal/60 capitalize">{featuredArticle.date}</span>
               </div>
+
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-navy group-hover:text-burgundy transition-colors leading-snug mb-3">
+                <Link href={`/pemikiran/${featuredArticle.slug}`}>
+                  {featuredArticle.title}
+                </Link>
+              </h3>
+
+              <p className="text-sm sm:text-base text-charcoal/80 leading-relaxed font-sans mb-5">
+                {featuredArticle.summary}
+              </p>
+
+              <Link
+                href={`/pemikiran/${featuredArticle.slug}`}
+                className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-burgundy hover:text-navy border-b border-burgundy/40 pb-0.5 transition-colors"
+              >
+                <span>Baca Esai Lengkap</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </article>
           )}
 
-          {/* Side Editorial Stories List */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
-            {sideArticles.map((article) => (
+          {/* Sisi Kanan (6 Kolom): 3 Daftar Artikel Terbaru (Hanya Dipisahkan Garis Tipis) */}
+          <div className="lg:col-span-6 lg:pl-8 lg:border-l border-[#252525]/15 divide-y divide-[#252525]/15">
+            {sideArticles.map((article, idx) => (
               <article
                 key={article.id}
-                className="p-6 sm:p-7 rounded-2xl bg-white border border-navy/10 hover:shadow-md transition-all group flex flex-col justify-between"
+                className={`${idx === 0 ? 'pb-7' : idx === sideArticles.length - 1 ? 'pt-7' : 'py-7'} group`}
               >
-                <div>
-                  <div className="flex items-center gap-3 text-xs text-charcoal/60 mb-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-burgundy">
-                      {article.category}
-                    </span>
-                    <span>·</span>
-                    <span>{article.date}</span>
-                    <span>·</span>
-                    <span>{article.readTime}</span>
-                  </div>
-
-                  <h4 className="text-lg sm:text-xl font-bold text-navy group-hover:text-burgundy transition-colors leading-snug mb-2">
-                    <Link href={`/pemikiran/${article.slug}`}>
-                      {article.title}
-                    </Link>
-                  </h4>
-
-                  <p className="text-xs sm:text-sm text-charcoal/70 line-clamp-2 leading-relaxed">
-                    {article.summary}
-                  </p>
+                <div className="flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-widest text-burgundy mb-2">
+                  <span>{article.category}</span>
+                  <span className="text-charcoal/30">·</span>
+                  <span className="font-normal text-charcoal/60 capitalize">{article.date}</span>
+                  <span className="text-charcoal/30">·</span>
+                  <span className="font-normal text-charcoal/60 lowercase">{article.readTime}</span>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-navy/5 flex items-center justify-end">
-                  <Link
-                    href={`/pemikiran/${article.slug}`}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-navy group-hover:text-burgundy transition-colors"
-                  >
-                    <span>Baca Artikel</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                <h4 className="text-lg sm:text-xl font-serif font-bold text-navy group-hover:text-burgundy transition-colors leading-snug mb-2">
+                  <Link href={`/pemikiran/${article.slug}`}>
+                    {article.title}
                   </Link>
-                </div>
+                </h4>
+
+                <p className="text-xs sm:text-sm text-charcoal/75 line-clamp-2 leading-relaxed font-sans">
+                  {article.summary}
+                </p>
               </article>
             ))}
           </div>
