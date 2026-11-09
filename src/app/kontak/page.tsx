@@ -26,7 +26,7 @@ export default function ContactPage() {
           <span>Kontak & Ruang Diskusi</span>
         </div>
       </div>
-      <ContactSection contact={db.contact} />
+      <ContactSection contact={db.contact} includeFooter={false} />
     </div>
   );
 }

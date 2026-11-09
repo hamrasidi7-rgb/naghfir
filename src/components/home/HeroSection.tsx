@@ -1,97 +1,102 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRight, MapPin } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { ProfileData } from '@/data/initialData';
+import { getWhatsAppUrl } from '@/config/whatsapp';
 
 interface HeroSectionProps {
   profile: ProfileData;
+  whatsappNumber?: string;
 }
 
-export default function HeroSection({ profile }: HeroSectionProps) {
+export default function HeroSection({ profile, whatsappNumber }: HeroSectionProps) {
+  const whatsappHref = getWhatsAppUrl('hero', whatsappNumber);
+
   return (
-    <section className="relative bg-[#FAF8F5] border-b border-[#252525]/15 pt-8 sm:pt-12 pb-16 lg:py-24">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          
-          {/* Kolom Kiri: Tipografi Editorial Bersih */}
-          <div className="lg:col-span-7 space-y-6 order-2 lg:order-1">
-            
-            {/* Lokasi Identitas Minimalis */}
-            <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-burgundy">
-              <MapPin className="w-3.5 h-3.5" />
-              <span>SUMENEP · MADURA · INDONESIA</span>
-            </div>
+    <section
+      id="beranda"
+      className="relative bg-gradient-to-br from-[#FCFBF7] via-[#F7F2E7] to-[#EDE4D3] border-b border-[#E5DEC9] py-10 sm:py-14 lg:py-16 overflow-hidden"
+    >
+      {/* Subtle architectural warm glow on the right */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-20 top-0 w-[520px] h-[520px] rounded-full bg-gradient-to-bl from-[#DFC99B]/30 via-[#F5EFE0]/20 to-transparent blur-3xl"
+      />
 
-            {/* Nama Lengkap & Gelar Resmi */}
-            <div className="space-y-2">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-navy tracking-tight leading-[1.08]">
-                Dr. Naghfir
-              </h1>
-              <p className="text-sm sm:text-base font-semibold text-charcoal/70 tracking-wide">
-                {profile.degrees}
-              </p>
-            </div>
-
-            {/* Identitas Profesional */}
-            <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] text-burgundy pt-1">
-              Notaris & PPAT &nbsp;|&nbsp; Akademisi &nbsp;|&nbsp; Penggerak Sosial
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          {/* Kolom Kiri: Tipografi Sesuai Desain */}
+          <div className="lg:col-span-7 space-y-3.5 order-2 lg:order-1">
+            {/* Baris Lokasi */}
+            <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.25em] text-[#4A453B]">
+              SUMENEP &nbsp;·&nbsp; MADURA &nbsp;·&nbsp; INDONESIA
             </p>
 
-            {/* Garis Pemisah Tipis Editorial */}
-            <div className="w-16 h-[2px] bg-burgundy" />
-
-            {/* Headline Utama & Deskripsi */}
-            <div className="space-y-3 max-w-xl">
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-navy leading-snug">
-                &ldquo;Ilmu, Hukum, dan Pengabdian.&rdquo;
-              </h2>
-              <p className="text-base sm:text-lg text-charcoal/80 leading-relaxed font-sans">
-                Membangun kepastian hukum, mengembangkan pemikiran, dan mengabdi kepada masyarakat.
+            {/* Nama & Gelar */}
+            <div>
+              <h1 className="font-serif text-4xl sm:text-6xl lg:text-[62px] font-bold text-[#142134] tracking-tight leading-[1.05]">
+                {profile.shortName || 'Dr. Naghfir'},
+              </h1>
+              <p className="font-serif text-lg sm:text-2xl font-bold text-[#1E293B] mt-1.5">
+                {profile.degrees || 'S.HI., S.H., M.Kn., CPM., CH., C.Ht.'}
               </p>
             </div>
 
-            {/* Navigasi Primer Bersih */}
-            <div className="pt-3 flex flex-wrap items-center gap-6">
-              <Link
-                href="/profil"
-                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-navy hover:bg-burgundy text-white font-semibold text-xs uppercase tracking-widest transition-colors"
-              >
-                <span>Profil & Kredensial</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+            {/* Peran Profesional */}
+            <p className="text-sm sm:text-base font-medium text-[#2D3748] pt-0.5">
+              Notaris &amp; PPAT &nbsp;|&nbsp; Akademisi &nbsp;|&nbsp; Penggerak Sosial
+            </p>
 
-              <Link
-                href="/pemikiran"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-navy hover:text-burgundy border-b border-navy/30 hover:border-burgundy pb-1 transition-colors"
+            {/* Tagline Emas Italic */}
+            <h2 className="font-serif italic text-2xl sm:text-3xl lg:text-[34px] font-semibold text-[#B48634] leading-snug pt-0.5">
+              Ilmu, Hukum, dan Pengabdian.
+            </h2>
+
+            {/* Deskripsi Singkat */}
+            <p className="text-sm sm:text-base text-[#374151] leading-relaxed max-w-md pt-0.5">
+              Menghadirkan layanan hukum yang profesional dan terpercaya, serta kontribusi nyata bagi masyarakat.
+            </p>
+
+            {/* Dua Tombol CTA: Konsultasi Notaris & PPAT + Mengenal Saya */}
+            <div className="pt-3 flex flex-wrap items-center gap-3.5">
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-b from-[#CCA24E] via-[#B48834] to-[#986E21] hover:from-[#D4AA56] hover:to-[#A47826] text-white font-semibold text-xs sm:text-sm transition-all shadow-md border border-[#8E651C]/40"
               >
-                <span>Baca Gagasan & Esai</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+                <MessageCircle className="w-4 h-4 text-white shrink-0" />
+                <span>Konsultasi Notaris &amp; PPAT</span>
+              </a>
+
+              <a
+                href="#tentang-saya"
+                className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-white/85 hover:bg-white text-[#142134] font-semibold text-xs sm:text-sm border border-[#142134]/75 transition-all shadow-xs"
+              >
+                <span>Mengenal Saya</span>
+              </a>
             </div>
-
           </div>
 
-          {/* Kolom Kanan: Portrait Dokumenter Bersih (Tanpa Tumpukan Badge Melayang) */}
+          {/* Kolom Kanan: Foto Resmi Asli Dr. Naghfir */}
           <div className="lg:col-span-5 order-1 lg:order-2">
             <figure className="relative mx-auto max-w-sm lg:max-w-none">
-              <div className="relative overflow-hidden rounded-lg bg-ivory aspect-[4/5] border border-[#252525]/10 shadow-sm">
+              <div className="relative overflow-hidden rounded-2xl bg-[#EFE8D8] aspect-[4/3.6] sm:aspect-[4/3.5] border border-[#D8CEBE] shadow-lg">
                 <Image
-                  src={profile.heroImage || '/images/naghfir.webp'}
+                  src={
+                    profile.heroImage && profile.heroImage !== '/images/naghfir.webp'
+                      ? profile.heroImage
+                      : '/images/Naghfir-Notaris.png'
+                  }
                   alt={profile.name}
                   fill
                   priority
-                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 40vw"
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 42vw"
                   className="object-cover object-top"
                 />
               </div>
-              <figcaption className="mt-3 flex items-center justify-between text-[11px] text-charcoal/60 border-b border-[#252525]/10 pb-2">
-                <span className="font-medium text-navy">Dr. Naghfir, S.HI., S.H., M.Kn.</span>
-                <span>Notaris & PPAT Kabupaten Sumenep</span>
-              </figcaption>
             </figure>
           </div>
-
         </div>
       </div>
     </section>

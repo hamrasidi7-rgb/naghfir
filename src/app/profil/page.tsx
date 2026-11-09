@@ -120,13 +120,19 @@ export default function ProfilePage() {
       </div>
 
       {/* Full In-Depth Section 1: Profesional Notaris & PPAT */}
-      <ProfessionalSection professional={db.professional} />
+      <ProfessionalSection
+        professional={db.professional}
+        whatsappNumber={db.contact.whatsappNumber}
+      />
 
       {/* Full In-Depth Section 2: Akademik & Pendidikan */}
       <AcademicSection education={db.education} />
 
       {/* Full In-Depth Section 3: Pengabdian Sosial (LWPNU & Wakaf) */}
-      <SocialSection socialContribution={db.socialContribution} />
+      <SocialSection
+        socialContribution={db.socialContribution}
+        activities={db.activities}
+      />
 
       {/* Bottom CTA to Journey Page */}
       <div className="py-14 bg-[#FDFCFB]">

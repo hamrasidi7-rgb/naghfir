@@ -219,6 +219,24 @@ export default function AdminContactPage() {
 
             <div>
               <label className="block text-xs font-bold uppercase text-navy mb-1.5">
+                Nomor WhatsApp Resmi Terpusat
+              </label>
+              <input
+                type="text"
+                placeholder="Contoh: 62812xxxxxxxx (Kosongkan jika belum diatur)"
+                value={contact.whatsappNumber || ''}
+                onChange={(e) => setContact({ ...contact, whatsappNumber: e.target.value })}
+                className="w-full px-4 py-2.5 rounded-xl border border-navy/15 text-sm"
+              />
+              <span className="text-[11px] text-charcoal/50 mt-1 block">
+                Digunakan secara terpusat pada Header, Hero, Layanan Notaris & PPAT, Kontak, dan Floating WhatsApp.
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label className="block text-xs font-bold uppercase text-navy mb-1.5">
                 Wilayah Pengabdian & Kantor *
               </label>
               <input
@@ -226,6 +244,19 @@ export default function AdminContactPage() {
                 required
                 value={contact.location}
                 onChange={(e) => setContact({ ...contact, location: e.target.value })}
+                className="w-full px-4 py-2.5 rounded-xl border border-navy/15 text-sm"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold uppercase text-navy mb-1.5">
+                Alamat Lengkap Kantor Resmi *
+              </label>
+              <input
+                type="text"
+                required
+                value={contact.officeAddress || ''}
+                onChange={(e) => setContact({ ...contact, officeAddress: e.target.value })}
                 className="w-full px-4 py-2.5 rounded-xl border border-navy/15 text-sm"
               />
             </div>

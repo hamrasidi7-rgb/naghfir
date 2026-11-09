@@ -145,6 +145,7 @@ export interface PublicationItem {
 
 export interface ContactSettings {
   email: string;
+  whatsappNumber?: string;
   phoneNote: string;
   location: string;
   officeAddress: string;
@@ -211,7 +212,7 @@ export const initialData: DatabaseSchema = {
     tagline: "Notaris & PPAT | Akademisi | Penggerak Sosial",
     headline: "Ilmu, Hukum, dan Pengabdian.",
     subheadline: "Membangun kepastian hukum, mengembangkan pemikiran, dan mengabdi kepada masyarakat.",
-    heroImage: "/images/naghfir.webp",
+    heroImage: "/images/Naghfir-Notaris.png",
     heroImageCredit: "Foto Resmi Dokumentasi Personal Dr. Naghfir",
     officeAddress: "Jl. Jokotole – Perum Griya Berkat Regency Gg. III No. 24 (Lingkar Barat), Kec. Batuan, Kab. Sumenep, Jawa Timur",
     bphtbAward: "Juara 1 Mitra Pembayar BPHTB Terbesar Kabupaten Sumenep (Bapenda Sumenep)",
@@ -905,6 +906,7 @@ Melalui peran PPAT dan dialog edukatif kemasyarakatan, kita mendorong masyarakat
   ],
   contact: {
     email: "kontak@naghfir.id",
+    whatsappNumber: "",
     phoneNote: "Pelayanan resmi kenotariatan dan konsultasi akademik terjadwal melalui kantor resmi.",
     location: "Sumenep, Madura, Indonesia",
     officeAddress: "Jl. Jokotole – Perum Griya Berkat Regency Gg. III No. 24 (Lingkar Barat), Kec. Batuan, Kab. Sumenep, Jawa Timur",

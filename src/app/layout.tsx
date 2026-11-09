@@ -1,15 +1,24 @@
 import type { Metadata } from 'next';
-import { Manrope } from 'next/font/google';
+import { Manrope, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { getDatabase } from '@/lib/db';
 
 const manrope = Manrope({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-manrope',
-  weight: ['300', '400', '500', '600', '700', '800'],
+  weight: ['400', '500', '600', '700', '800'],
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-playfair',
+  weight: ['500', '600', '700', '800'],
+  style: ['normal', 'italic'],
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -63,6 +72,7 @@ export default function RootLayout({
 }) {
   const db = getDatabase();
   const profile = db.profile;
+  const whatsappNumber = db.contact?.whatsappNumber || '';
 
   // JSON-LD Structured Data
   const jsonLd = {
@@ -99,17 +109,18 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="id" className={`${manrope.variable} scroll-smooth`}>
+    <html lang="id" className={`${manrope.variable} ${playfair.variable} scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#FDFCFB] text-charcoal font-sans antialiased selection:bg-burgundy/20 selection:text-burgundy">
-        <Header />
-        <main className="flex-grow pt-20">{children}</main>
-        <Footer />
+      <body className="min-h-screen flex flex-col bg-ivory-50 text-charcoal font-sans antialiased selection:bg-gold/25 selection:text-navy">
+        <Header whatsappNumber={whatsappNumber} />
+        <main className="flex-grow pt-[68px]">{children}</main>
+        <Footer whatsappNumber={whatsappNumber} />
+        <FloatingWhatsApp whatsappNumber={whatsappNumber} />
       </body>
     </html>
   );
