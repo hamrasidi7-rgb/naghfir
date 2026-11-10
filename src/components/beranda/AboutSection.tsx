@@ -40,23 +40,24 @@ export default function AboutSection({ profile }: AboutSectionProps) {
     <section id="tentang-saya" className="scroll-mt-20 bg-paper">
       <div className="page-container py-12 sm:py-16 lg:py-20">
         <div className="grid grid-cols-1 items-center gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-14">
-          {/* Potret Rapi Bersih */}
-          <figure className="relative mx-auto w-full max-w-[260px] sm:max-w-sm lg:col-span-5 lg:max-w-none">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-line/80 bg-gradient-to-b from-white to-paper-muted shadow-sm">
+          {/* Potret Rapi Bersih Berlatar Transparan Tanpa Sekat Kotak (Ukuran +25%) */}
+          <figure className="relative mx-auto w-full max-w-[325px] sm:max-w-md lg:col-span-5 lg:max-w-none flex justify-center">
+            <div className="relative w-full max-w-[325px] sm:max-w-[380px] lg:max-w-[420px]">
               <Image
-                src="/images/Naghfir-Berdiri.png"
+                src="/images/Naghfir-Berdiri-Transparan.png"
                 alt={profile.name}
-                fill
-                sizes="(max-width: 1024px) 384px, 40vw"
-                className="object-cover object-top"
+                width={1049}
+                height={1500}
+                sizes="(max-width: 640px) 325px, (max-width: 1024px) 380px, 420px"
+                className="w-full h-auto object-contain drop-shadow-[0_16px_32px_rgba(17,28,45,0.09)]"
+                priority
               />
             </div>
           </figure>
 
           {/* Narasi Editorial */}
           <div className="lg:col-span-7">
-            <p className="eyebrow">Tentang Saya</p>
-            <h2 className="section-title mt-2.5 sm:mt-3">Lebih dari Sekadar Profesi</h2>
+            <h2 className="section-title text-center lg:text-left">Lebih dari Sekadar Profesi</h2>
 
             {/* Paragraf editorial tunggal (42 kata, bebas klaim absolut) */}
             <p className="mt-4 font-serif text-base sm:text-lg leading-relaxed text-ink/90">
