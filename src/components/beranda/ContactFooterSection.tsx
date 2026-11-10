@@ -13,7 +13,6 @@ interface ContactFooterSectionProps {
 
 const NAV = [
   { href: '#layanan', label: 'Layanan' },
-  { href: '#konsultasi', label: 'Konsultasi' },
   { href: '#tentang-saya', label: 'Tentang Saya' },
   { href: '#pengabdian', label: 'Pengabdian & Pemikiran' },
   { href: '#kontak', label: 'Kontak' },
@@ -34,7 +33,9 @@ export default function ContactFooterSection({ contact, fullName }: ContactFoote
   const socials = (['instagram', 'youtube', 'facebook'] as const).filter((k) => contact.socials?.[k]);
 
   return (
-    <section id="kontak" className="scroll-mt-20 bg-ink text-white">
+    <section id="kontak" className="relative scroll-mt-20 bg-ink text-white">
+      {/* Target anchor konsultasi yang mengarah langsung ke kontak */}
+      <div id="konsultasi" className="absolute -top-16 left-0 pointer-events-none" />
       <div className="page-container pb-8 pt-12 sm:pt-16 sm:pb-10 lg:pt-20 lg:pb-12">
         <div className="grid grid-cols-1 gap-8 sm:gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Ajakan konsultasi */}

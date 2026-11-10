@@ -9,13 +9,12 @@ import { Monogram, WhatsAppIcon } from '@/components/beranda/ui';
 
 const NAV_LINKS = [
   { id: 'layanan', label: 'Layanan' },
-  { id: 'konsultasi', label: 'Konsultasi' },
   { id: 'tentang-saya', label: 'Tentang Saya' },
   { id: 'pengabdian', label: 'Pengabdian & Pemikiran' },
   { id: 'kontak', label: 'Kontak' },
 ];
 
-const TRACKED_SECTIONS = ['konsultasi', 'layanan', 'tentang-saya', 'pengabdian', 'kontak'];
+const TRACKED_SECTIONS = ['layanan', 'tentang-saya', 'pengabdian', 'kontak'];
 
 interface HeaderProps {
   whatsappNumber?: string;
