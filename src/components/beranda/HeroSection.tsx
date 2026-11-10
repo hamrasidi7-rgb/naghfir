@@ -57,24 +57,24 @@ export default function HeroSection({ profile }: HeroSectionProps) {
         className="pointer-events-none absolute -right-36 top-1/4 h-[420px] w-[420px] rounded-full bg-brass-light/15 blur-3xl"
       />
 
-      <div className="page-container relative grid grid-cols-1 items-center gap-6 sm:gap-8 lg:grid-cols-12 lg:gap-12 pt-3 pb-8 sm:pt-6 sm:pb-14 lg:py-10 xl:py-12">
+      <div className="page-container relative grid grid-cols-1 items-center gap-6 sm:gap-8 lg:grid-cols-12 lg:gap-12 pt-1 pb-8 sm:pt-4 sm:pb-14 lg:py-10 xl:py-12">
         {/* Kolom Teks: 7 kolom di desktop */}
         <div className="lg:col-span-7 flex flex-col">
-          {/* Fokus Utama: Nama Tokoh & Gelar — jarak rapat, gelar margin tengah */}
-          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          {/* Di Mobile: Teks di atas foto hero dihapus sesuai instruksi. Foto tampil langsung di posisi teratas lipatan pertama */}
+          <div className="block lg:hidden">
+            {photoCard}
+          </div>
+
+          {/* Fokus Utama: Nama Tokoh & Gelar — Tampil di desktop (di samping foto) */}
+          <div className="hidden lg:flex flex-col items-start text-left">
             <div className="inline-flex flex-col items-center text-center">
-              <h1 className="font-serif text-[34px] sm:text-[44px] lg:text-[52px] xl:text-[58px] font-semibold leading-[1.08] tracking-[-0.02em] text-ink">
+              <h1 className="font-serif text-[38px] lg:text-[52px] xl:text-[58px] font-semibold leading-[1.08] tracking-[-0.02em] text-ink">
                 {profile.shortName || 'Dr. Naghfir'}
               </h1>
-              <p className="mt-1 text-center text-xs sm:text-sm font-medium tracking-[0.02em] text-muted sm:text-base">
+              <p className="mt-1 text-center text-sm font-medium tracking-[0.02em] text-muted lg:text-base">
                 {profile.degrees}
               </p>
             </div>
-          </div>
-
-          {/* Di Mobile: Foto tampil di first fold langsung di bawah nama tokoh */}
-          <div className="mt-4 sm:mt-5 block lg:hidden">
-            {photoCard}
           </div>
 
           {/* Kutipan Filosofis: Aksen bermartabat, bukan headline bersaing */}
