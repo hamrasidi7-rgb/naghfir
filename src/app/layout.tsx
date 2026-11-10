@@ -118,7 +118,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col bg-paper text-ink font-sans antialiased selection:bg-brass-light/40 selection:text-ink">
         <Header whatsappNumber={whatsappNumber} />
-        <main className="flex-grow pt-16 sm:pt-[68px]">{children}</main>
+        <main className="flex-grow pt-14 sm:pt-16 lg:pt-[68px]">{children}</main>
         <Footer whatsappNumber={whatsappNumber} />
         <FloatingWhatsApp whatsappNumber={whatsappNumber} />
       </body>

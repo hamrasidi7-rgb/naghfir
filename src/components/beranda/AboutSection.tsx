@@ -38,15 +38,11 @@ const MILESTONES = [
 export default function AboutSection({ profile }: AboutSectionProps) {
   return (
     <section id="tentang-saya" className="scroll-mt-20 bg-paper">
-      <div className="page-container py-16 sm:py-20 lg:py-24">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-14">
-          {/* Potret */}
-          <figure className="relative mx-auto w-full max-w-sm lg:col-span-5 lg:max-w-none">
-            <div
-              aria-hidden="true"
-              className="absolute -bottom-3 -left-3 h-full w-full rounded-2xl border border-brass/35"
-            />
-            <div className="relative aspect-square overflow-hidden rounded-2xl bg-gradient-to-b from-white to-paper-muted shadow-sm sm:aspect-[4/5]">
+      <div className="page-container py-12 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 items-center gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-14">
+          {/* Potret Rapi Bersih */}
+          <figure className="relative mx-auto w-full max-w-[260px] sm:max-w-sm lg:col-span-5 lg:max-w-none">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-line/80 bg-gradient-to-b from-white to-paper-muted shadow-sm">
               <Image
                 src="/images/Naghfir-Berdiri.png"
                 alt={profile.name}
@@ -60,30 +56,33 @@ export default function AboutSection({ profile }: AboutSectionProps) {
           {/* Narasi Editorial */}
           <div className="lg:col-span-7">
             <p className="eyebrow">Tentang Saya</p>
-            <h2 className="section-title mt-3">Lebih dari Sekadar Profesi</h2>
+            <h2 className="section-title mt-2.5 sm:mt-3">Lebih dari Sekadar Profesi</h2>
 
             {/* Paragraf editorial tunggal (42 kata, bebas klaim absolut) */}
-            <p className="mt-5 font-serif text-lg leading-relaxed text-ink/90 sm:text-xl">
+            <p className="mt-4 font-serif text-base sm:text-lg leading-relaxed text-ink/90">
               Berakar dari tradisi santri di Pasongsongan, Sumenep, Dr. Naghfir memadukan ketelitian hukum positif dan keilmuan syariah hingga jenjang doktoral. Nilai integritas, kecermatan, serta adab pesantren menjadi landasan moral dalam memberikan pelayanan hukum autentik, mengemban amanah jabatan publik, dan berkhidmah bagi kemaslahatan masyarakat Madura.
             </p>
 
-            {/* Tiga Pilar Nilai (Responsive: 1 kolom lega pada mobile & tablet 768px, 3 kolom pada desktop) */}
-            <ul className="mt-8 grid grid-cols-1 gap-5 border-t border-line pt-6 lg:grid-cols-3 lg:gap-6">
+            {/* Tiga Pilar Nilai — Kartu ringkas berlatar paper-card di mobile untuk keterbacaan tinggi */}
+            <ul className="mt-6 grid grid-cols-1 gap-3 sm:gap-4 border-t border-line pt-5 lg:grid-cols-3 lg:gap-6">
               {PILLARS.map(({ icon: Icon, title, desc }) => (
-                <li key={title} className="flex items-start gap-3.5 lg:flex-col lg:items-start lg:gap-0">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-line/60 bg-paper-muted">
-                    <Icon className="h-4.5 w-4.5 text-brass" strokeWidth={1.75} />
+                <li
+                  key={title}
+                  className="flex items-start gap-3 rounded-xl border border-line/60 bg-paper-card p-3 sm:p-4 lg:border-none lg:bg-transparent lg:p-0 lg:flex-col lg:items-start lg:gap-0"
+                >
+                  <div className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg border border-line/60 bg-paper-muted">
+                    <Icon className="h-4 w-4 text-brass" strokeWidth={1.75} />
                   </div>
                   <div className="min-w-0 flex-1 lg:mt-3">
-                    <h3 className="font-serif text-base font-semibold text-ink sm:text-[17px]">{title}</h3>
-                    <p className="mt-1 text-xs leading-relaxed text-muted sm:text-sm">{desc}</p>
+                    <h3 className="font-serif text-sm sm:text-base font-semibold text-ink">{title}</h3>
+                    <p className="mt-0.5 text-xs leading-relaxed text-muted">{desc}</p>
                   </div>
                 </li>
               ))}
             </ul>
 
             {/* Navigasi Profil & Linimasa */}
-            <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm">
               <Link href="/profil" className="text-link">
                 Profil lengkap <ArrowRight className="h-3.5 w-3.5" />
               </Link>
@@ -95,13 +94,15 @@ export default function AboutSection({ profile }: AboutSectionProps) {
         </div>
 
         {/* Tonggak Jejak & Perjalanan */}
-        <div className="mt-14 border-t border-line pt-8 lg:mt-16 lg:pt-10">
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted">Tonggak Jejak &amp; Perjalanan</p>
-          <ol className="mt-6 grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-5 lg:gap-0">
+        <div className="mt-10 border-t border-line pt-6 sm:mt-14 sm:pt-8">
+          <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-muted">
+            Tonggak Jejak &amp; Perjalanan
+          </p>
+          <ol className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-4 lg:grid-cols-5 lg:gap-0">
             {MILESTONES.map((m, i) => (
               <li
                 key={m.mark}
-                className="relative border-l-2 border-line pl-3.5 py-0.5 lg:border-l-0 lg:border-t lg:border-line lg:pl-0 lg:pr-6 lg:pt-5"
+                className="relative border-l-2 border-line pl-3 py-0.5 lg:border-l-0 lg:border-t lg:border-line lg:pl-0 lg:pr-6 lg:pt-4"
               >
                 <span
                   aria-hidden="true"
@@ -109,8 +110,8 @@ export default function AboutSection({ profile }: AboutSectionProps) {
                     i === MILESTONES.length - 1 ? 'bg-brass' : 'bg-paper'
                   }`}
                 />
-                <span className="font-serif text-base font-semibold text-ink lg:text-lg">{m.mark}</span>
-                <p className="mt-0.5 text-xs leading-relaxed text-muted sm:text-[13px]">{m.text}</p>
+                <span className="font-serif text-sm sm:text-base font-semibold text-ink">{m.mark}</span>
+                <p className="mt-0.5 text-xs leading-relaxed text-muted">{m.text}</p>
               </li>
             ))}
           </ol>

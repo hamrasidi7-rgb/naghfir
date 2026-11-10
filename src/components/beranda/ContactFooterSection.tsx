@@ -35,39 +35,39 @@ export default function ContactFooterSection({ contact, fullName }: ContactFoote
 
   return (
     <section id="kontak" className="scroll-mt-20 bg-ink text-white">
-      <div className="page-container pb-10 pt-20 lg:pt-28">
-        <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-16">
+      <div className="page-container pb-8 pt-12 sm:pt-16 sm:pb-10 lg:pt-20 lg:pb-12">
+        <div className="grid grid-cols-1 gap-8 sm:gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Ajakan konsultasi */}
           <div className="lg:col-span-7">
             <p className="eyebrow text-brass-light before:bg-brass-light">Kontak</p>
-            <h2 className="mt-5 font-serif text-[34px] font-semibold leading-[1.1] sm:text-[44px]">
+            <h2 className="mt-3 font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight">
               Butuh Konsultasi
               <br className="hidden sm:block" /> Notaris &amp; PPAT?
             </h2>
-            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/70">
+            <p className="mt-3 sm:mt-4 max-w-md text-xs sm:text-sm leading-relaxed text-white/70">
               Sampaikan kebutuhan Anda melalui WhatsApp. Kantor akan membantu informasi layanan,
               persyaratan, dan penjadwalan konsultasi.
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a href={waHref} target="_blank" rel="noopener noreferrer" className="btn btn-gold">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3">
+              <a href={waHref} target="_blank" rel="noopener noreferrer" className="btn btn-gold justify-center py-3 text-xs sm:text-sm">
                 <WhatsAppIcon className="h-4 w-4" />
-                Hubungi via WhatsApp
+                <span>Hubungi via WhatsApp</span>
               </a>
-              <a href="#konsultasi" className="btn btn-outline-light">
-                Simulasi konsultasi
+              <a href="#konsultasi" className="btn btn-outline-light justify-center py-3 text-xs sm:text-sm">
+                <span>Simulasi Konsultasi</span>
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           </div>
 
           {/* Detail kantor */}
-          <dl className="space-y-7 border-t border-white/10 pt-10 text-sm lg:col-span-5 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-1">
+          <dl className="space-y-5 border-t border-white/10 pt-6 text-xs sm:text-sm lg:col-span-5 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-1">
             <ContactRow icon={<MapPin className="h-4 w-4" />} label="Kantor Notaris & PPAT">
               {contact.officeAddress}
             </ContactRow>
             <ContactRow
               icon={<Clock className="h-4 w-4" />}
-              label="Jam layanan"
+              label="Jam Layanan"
               tag={<DummyTag className="text-brass-light" />}
             >
               {OFFICE_HOURS_DUMMY.map((row) => (
@@ -79,10 +79,10 @@ export default function ContactFooterSection({ contact, fullName }: ContactFoote
             </ContactRow>
             <ContactRow
               icon={<WhatsAppIcon className="h-4 w-4" />}
-              label="WhatsApp"
+              label="WhatsApp Resmi"
               tag={dummyWa ? <DummyTag className="text-brass-light" /> : undefined}
             >
-              <a href={waHref} target="_blank" rel="noopener noreferrer" className="hover:text-brass-light">
+              <a href={waHref} target="_blank" rel="noopener noreferrer" className="hover:text-brass-light font-semibold">
                 {formatWhatsAppDisplay(contact.whatsappNumber)}
               </a>
             </ContactRow>
@@ -94,17 +94,19 @@ export default function ContactFooterSection({ contact, fullName }: ContactFoote
           </dl>
         </div>
 
-        {/* Footer */}
-        <footer className="mt-20 border-t border-white/10 pt-10">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex items-center gap-3.5">
-              <Monogram className="text-[38px]" />
+        {/* Footer Ringkas & Elegan */}
+        <footer className="mt-12 sm:mt-16 border-t border-white/10 pt-6 sm:pt-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex items-center gap-3">
+              <Monogram className="text-[32px] sm:text-[36px]" />
               <div>
-                <p className="font-serif text-base font-semibold">Dr. Naghfir</p>
-                <p className="text-xs text-white/55">Notaris &amp; PPAT · Akademisi · Penggerak Sosial</p>
+                <p className="font-serif text-sm sm:text-base font-semibold">Dr. Naghfir</p>
+                <p className="text-[11px] sm:text-xs text-white/55">Notaris &amp; PPAT · Akademisi · Penggerak Sosial</p>
               </div>
             </div>
-            <nav aria-label="Navigasi footer" className="flex flex-wrap gap-x-7 gap-y-3 text-sm text-white/70">
+
+            {/* Desktop Navigation Link (Hidden di mobile agar footer ringkas) */}
+            <nav aria-label="Navigasi footer" className="hidden lg:flex flex-wrap gap-x-7 gap-y-3 text-xs sm:text-sm text-white/70">
               {NAV.map((item) => (
                 <a key={item.href} href={item.href} className="transition-colors hover:text-white">
                   {item.label}
@@ -113,9 +115,9 @@ export default function ContactFooterSection({ contact, fullName }: ContactFoote
             </nav>
           </div>
 
-          <div className="mt-10 flex flex-col-reverse gap-5 border-t border-white/10 pt-6 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-6 flex flex-col-reverse gap-4 border-t border-white/10 pt-5 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
             <p>
-              © {new Date().getFullYear()} {fullName}
+              © {new Date().getFullYear()} {fullName}. Seluruh hak cipta dilindungi.
             </p>
             <div className="flex items-center gap-5">
               {socials.map((key) => (

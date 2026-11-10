@@ -24,31 +24,33 @@ export default function DevotionThoughtsSection({ socialContribution, articles }
 
   return (
     <section id="pengabdian" className="scroll-mt-20 border-y border-line bg-white">
-      <div className="page-container py-20 lg:py-28">
+      <div className="page-container py-12 sm:py-16 lg:py-20">
         <div className="max-w-2xl">
           <p className="eyebrow">Pengabdian &amp; Pemikiran</p>
-          <h2 className="section-title mt-5">Ilmu yang Diabdikan untuk Masyarakat</h2>
+          <h2 className="mt-2.5 font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight text-ink">
+            Ilmu yang Diabdikan untuk Masyarakat
+          </h2>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-0 lg:divide-x lg:divide-line">
+        <div className="mt-8 sm:mt-12 grid grid-cols-1 gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-0 lg:divide-x lg:divide-line">
           {/* Pengabdian */}
-          <div className="lg:pr-14">
-            <div className="flex items-baseline justify-between gap-4 border-b border-ink pb-4">
-              <h3 className="font-serif text-2xl font-semibold text-ink">Pengabdian</h3>
-              <Link href="/aktivitas" className="text-link shrink-0 text-xs">
+          <div className="lg:pr-12">
+            <div className="flex items-baseline justify-between gap-3 border-b border-ink pb-3">
+              <h3 className="font-serif text-xl sm:text-2xl font-semibold text-ink">Pengabdian</h3>
+              <Link href="/aktivitas" className="text-link shrink-0 text-xs font-semibold">
                 Catatan aktivitas <ArrowRight className="h-3 w-3" />
               </Link>
             </div>
             <ol>
               {devotions.map((item, i) => (
-                <li key={item.id} className="grid grid-cols-[2.5rem_1fr] gap-2 border-b border-line py-6">
-                  <span className="font-serif text-sm font-semibold text-brass">0{i + 1}</span>
+                <li key={item.id} className="grid grid-cols-[2rem_1fr] sm:grid-cols-[2.5rem_1fr] gap-2 border-b border-line py-3.5 sm:py-4">
+                  <span className="font-serif text-xs sm:text-sm font-semibold text-brass">0{i + 1}</span>
                   <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brass-deep">
+                    <p className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-brass-deep">
                       {item.focusArea}
                     </p>
-                    <h4 className="mt-2 font-serif text-lg font-semibold leading-snug text-ink">{item.title}</h4>
-                    <p className="mt-1 text-sm text-muted">{item.role}</p>
+                    <h4 className="mt-1 font-serif text-base sm:text-lg font-semibold leading-snug text-ink">{item.title}</h4>
+                    <p className="mt-0.5 text-xs sm:text-sm text-muted">{item.role}</p>
                   </div>
                 </li>
               ))}
@@ -56,29 +58,29 @@ export default function DevotionThoughtsSection({ socialContribution, articles }
           </div>
 
           {/* Pemikiran */}
-          <div id="pemikiran" className="scroll-mt-20 lg:pl-14">
-            <div className="flex items-baseline justify-between gap-4 border-b border-ink pb-4">
-              <h3 className="font-serif text-2xl font-semibold text-ink">Pemikiran</h3>
-              <Link href="/pemikiran" className="text-link shrink-0 text-xs">
+          <div id="pemikiran" className="scroll-mt-20 lg:pl-12">
+            <div className="flex items-baseline justify-between gap-3 border-b border-ink pb-3">
+              <h3 className="font-serif text-xl sm:text-2xl font-semibold text-ink">Pemikiran</h3>
+              <Link href="/pemikiran" className="text-link shrink-0 text-xs font-semibold">
                 Semua tulisan <ArrowRight className="h-3 w-3" />
               </Link>
             </div>
             <ol>
               {thoughts.map((article) => (
                 <li key={article.id} className="border-b border-line">
-                  <Link href={`/pemikiran/${article.slug}`} className="group block py-6">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brass-deep">
+                  <Link href={`/pemikiran/${article.slug}`} className="group block py-3.5 sm:py-4">
+                    <p className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-brass-deep">
                       {article.category}
                       <span className="mx-2 text-line">|</span>
                       <span className="font-medium normal-case tracking-normal text-muted">
                         {formatDate(article.date)}
                       </span>
                     </p>
-                    <h4 className="mt-2 flex items-start justify-between gap-4 font-serif text-lg font-semibold leading-snug text-ink transition-colors group-hover:text-brass-deep">
+                    <h4 className="mt-1 flex items-start justify-between gap-3 font-serif text-base sm:text-lg font-semibold leading-snug text-ink transition-colors group-hover:text-brass-deep">
                       <span>{article.title}</span>
-                      <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-brass opacity-0 transition-opacity group-hover:opacity-100" />
+                      <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 text-brass opacity-0 transition-opacity group-hover:opacity-100" />
                     </h4>
-                    <p className="mt-1 text-sm text-muted">
+                    <p className="mt-0.5 text-xs text-muted">
                       {/baca/i.test(article.readTime) ? article.readTime : `${article.readTime} baca`}
                     </p>
                   </Link>

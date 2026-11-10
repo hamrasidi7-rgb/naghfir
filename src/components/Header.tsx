@@ -63,18 +63,18 @@ export default function Header({ whatsappNumber }: HeaderProps) {
           : 'border-b border-line/40 bg-paper/80 backdrop-blur-xs'
       }`}
     >
-      <div className="page-container flex h-16 sm:h-[68px] items-center justify-between gap-3 sm:gap-6">
+      <div className="page-container flex h-14 sm:h-16 lg:h-[68px] items-center justify-between gap-2.5 sm:gap-6">
         {/* Brand identity: Monogram + Nama + Jabatan Resmi */}
         <Link
           href="/#beranda"
-          className="group flex shrink-0 items-center gap-2.5 sm:gap-3 transition-opacity hover:opacity-90"
+          className="group flex shrink-0 items-center gap-2 sm:gap-3 transition-opacity hover:opacity-90"
         >
-          <Monogram className="text-[28px] sm:text-[34px] transition-transform duration-200 group-hover:scale-105" />
+          <Monogram className="text-[26px] sm:text-[34px] transition-transform duration-200 group-hover:scale-105" />
           <span className="flex flex-col">
             <span className="font-serif text-[15px] sm:text-lg font-semibold leading-tight text-ink tracking-tight">
               Dr. Naghfir
             </span>
-            <span className="text-[9.5px] sm:text-[10.5px] font-semibold uppercase tracking-[0.14em] text-brass">
+            <span className="text-[9px] sm:text-[10.5px] font-semibold uppercase tracking-[0.14em] text-brass">
               Notaris &amp; PPAT
             </span>
           </span>
@@ -104,15 +104,15 @@ export default function Header({ whatsappNumber }: HeaderProps) {
         </nav>
 
         {/* Action Controls: WhatsApp & Mobile Hamburger */}
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           <a
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Konsultasi via WhatsApp"
-            className="inline-flex h-9 sm:h-10 items-center justify-center gap-2 rounded-full bg-ink px-3 sm:px-4 text-[12.5px] sm:text-[13px] font-semibold text-text-on-dark transition-all duration-200 hover:bg-ink-soft hover:shadow-xs active:scale-95"
+            className="inline-flex h-9 sm:h-10 items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-ink px-2.5 sm:px-4 text-[12px] sm:text-[13px] font-semibold text-text-on-dark transition-all duration-200 hover:bg-ink-soft hover:shadow-xs active:scale-95"
           >
-            <WhatsAppIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-brass-light shrink-0" />
+            <WhatsAppIcon className="h-4 w-4 text-brass-light shrink-0" />
             <span className="hidden sm:inline">WhatsApp</span>
           </a>
 
