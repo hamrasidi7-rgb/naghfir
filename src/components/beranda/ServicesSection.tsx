@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ArrowRight, Landmark, LandPlot, ScrollText } from 'lucide-react';
+import { ArrowRight, ChevronDown, Landmark, LandPlot, ScrollText } from 'lucide-react';
 import { CategoryId, SERVICE_CATEGORIES } from '@/data/prototype/consultation';
 import ConsultationSimulator, { SimulatorSelection } from './ConsultationSimulator';
 
@@ -11,7 +11,7 @@ const CATEGORY_ICONS: Record<CategoryId, React.ElementType> = {
   pertanahan: LandPlot,
 };
 
-// Deskripsi ringkas & proporsional (15–20 kata, bebas klaim absolut, istilah yuridis tepat)
+// Deskripsi ringkas & proporsional (15–20 kata, istilah yuridis tepat)
 const CATEGORY_DESCRIPTIONS: Record<CategoryId, string> = {
   notaris:
     'Pembuatan akta autentik pendirian badan usaha, anggaran dasar koperasi, perjanjian perikatan, serta legalisasi dokumen berlandaskan ketelitian hukum.',
@@ -26,12 +26,19 @@ interface ServicesSectionProps {
 }
 
 export default function ServicesSection({ whatsappNumber }: ServicesSectionProps) {
-  // Pilihan dari kartu layanan diteruskan ke simulator (key memaksa simulator mulai ulang).
+  // Pilihan dari kartu layanan diteruskan ke simulator
   const [selection, setSelection] = useState<SimulatorSelection>({
     categoryId: 'notaris',
     serviceId: SERVICE_CATEGORIES[0].services[0].id,
     nonce: 0,
   });
+
+  // State accordion: semua tiga bidang tertutup secara default (null)
+  const [expandedCategory, setExpandedCategory] = useState<CategoryId | null>(null);
+
+  const toggleCategory = (id: CategoryId) => {
+    setExpandedCategory((prev) => (prev === id ? null : id));
+  };
 
   const choose = (categoryId: CategoryId, serviceId: string) => {
     setSelection((prev) => ({ categoryId, serviceId, nonce: prev.nonce + 1 }));
@@ -40,7 +47,7 @@ export default function ServicesSection({ whatsappNumber }: ServicesSectionProps
 
   return (
     <section id="layanan" className="scroll-mt-20 border-y border-line bg-paper">
-      <div className="page-container py-16 sm:py-20 lg:py-24">
+      <div className="page-container py-14 sm:py-18 lg:py-20">
         {/* Header Seksi */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
@@ -53,77 +60,132 @@ export default function ServicesSection({ whatsappNumber }: ServicesSectionProps
           </p>
         </div>
 
-        {/* Tiga Pilar Layanan (Triptych Editorial Terpadu) */}
-        <div className="mt-12 overflow-hidden rounded-2xl border border-line bg-paper-card shadow-sm">
-          <div className="grid grid-cols-1 divide-y divide-line lg:grid-cols-3 lg:divide-y-0 lg:divide-x">
-            {SERVICE_CATEGORIES.map((cat) => {
-              const Icon = CATEGORY_ICONS[cat.id];
-              return (
-                <article
-                  key={cat.id}
-                  className="flex flex-col justify-between p-6 sm:p-8 transition-colors hover:bg-paper-muted/20"
-                >
-                  <div>
-                    {/* Header Kartu */}
-                    <div className="flex items-center justify-between">
-                      <span className="font-serif text-xs font-semibold tracking-wider text-brass uppercase">
-                        Bidang {cat.number}
-                      </span>
-                      <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-line/60 bg-paper-muted">
-                        <Icon className="h-4.5 w-4.5 text-brass" strokeWidth={1.75} />
-                      </div>
-                    </div>
+        {/* Interactive Expandable Cards (Accordion 3 Bidang Layanan) */}
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 items-start gap-5 sm:gap-6 lg:grid-cols-3">
+          {SERVICE_CATEGORIES.map((cat) => {
+            const Icon = CATEGORY_ICONS[cat.id];
+            const isExpanded = expandedCategory === cat.id;
+            const panelId = `services-panel-${cat.id}`;
+            const buttonId = `services-button-${cat.id}`;
 
-                    {/* Judul & Deskripsi Proporsional */}
-                    <h3 className="mt-4 font-serif text-xl font-semibold text-ink sm:text-2xl">
-                      {cat.title}
-                    </h3>
-                    <p className="mt-2 text-xs leading-relaxed text-muted sm:text-sm">
-                      {CATEGORY_DESCRIPTIONS[cat.id]}
+            return (
+              <div
+                key={cat.id}
+                className={`overflow-hidden rounded-2xl border transition-all duration-300 bg-paper-card ${
+                  isExpanded
+                    ? 'border-brass/70 shadow-[0_12px_32px_-12px_rgba(158,116,40,0.18)] ring-1 ring-brass/30'
+                    : 'border-line shadow-xs hover:border-line-dark hover:shadow-sm'
+                }`}
+              >
+                {/* Header Card (Bisa diklik untuk expand/collapse) */}
+                <button
+                  id={buttonId}
+                  type="button"
+                  onClick={() => toggleCategory(cat.id)}
+                  aria-expanded={isExpanded}
+                  aria-controls={panelId}
+                  className="w-full p-6 sm:p-7 text-left select-none transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass"
+                >
+                  {/* Baris Atas: Nomor Bidang & Ikon */}
+                  <div className="flex items-center justify-between">
+                    <span className="font-serif text-xs font-semibold tracking-wider text-brass uppercase">
+                      Bidang {cat.number}
+                    </span>
+                    <div
+                      className={`flex h-10 w-10 items-center justify-center rounded-xl border transition-colors ${
+                        isExpanded
+                          ? 'border-brass/40 bg-paper-muted text-brass'
+                          : 'border-line/70 bg-paper-muted/60 text-muted'
+                      }`}
+                    >
+                      <Icon className="h-5 w-5" strokeWidth={1.75} />
+                    </div>
+                  </div>
+
+                  {/* Judul Bidang */}
+                  <h3 className="mt-4 font-serif text-xl sm:text-2xl font-semibold text-ink leading-snug">
+                    {cat.title}
+                  </h3>
+
+                  {/* Deskripsi Singkat Proporsional */}
+                  <p className="mt-2 text-xs sm:text-[13px] leading-relaxed text-muted line-clamp-3">
+                    {CATEGORY_DESCRIPTIONS[cat.id]}
+                  </p>
+
+                  {/* Baris Bawah Card: Jumlah Layanan & Indikator Expand */}
+                  <div className="mt-5 flex items-center justify-between border-t border-line/70 pt-4 text-xs font-semibold">
+                    <span className="inline-flex items-center rounded-full bg-paper-muted px-2.5 py-1 text-[11px] font-medium text-ink/80">
+                      {cat.services.length} Layanan
+                    </span>
+
+                    <span
+                      className={`inline-flex items-center gap-1.5 text-xs font-semibold transition-colors ${
+                        isExpanded ? 'text-brass' : 'text-muted group-hover:text-ink'
+                      }`}
+                    >
+                      <span>{isExpanded ? 'Tutup Daftar' : 'Lihat Layanan'}</span>
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform duration-300 ${
+                          isExpanded ? 'rotate-180 text-brass' : 'text-muted'
+                        }`}
+                      />
+                    </span>
+                  </div>
+                </button>
+
+                {/* Konten Terbuka (Expandable Panel) */}
+                {isExpanded && (
+                  <div
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={buttonId}
+                    className="border-t border-line/70 bg-paper/40 px-6 pb-6 pt-4 animate-in fade-in-50 duration-200"
+                  >
+                    <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
+                      Pilih Layanan untuk Konsultasi:
                     </p>
 
-                    {/* Cakupan Layanan Utama */}
-                    <div className="mt-6 border-t border-line/70 pt-4">
-                      <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-                        Cakupan Layanan:
-                      </p>
-                      <ul className="mt-2.5 space-y-1.5">
-                        {cat.services.map((srv) => (
-                          <li key={srv.id}>
-                            <button
-                              type="button"
-                              onClick={() => choose(cat.id, srv.id)}
-                              className="group flex w-full items-center justify-between py-1 text-left text-xs text-ink/80 transition-colors hover:text-brass sm:text-[13px]"
-                            >
-                              <span className="flex items-center gap-2">
-                                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brass/60 transition-colors group-hover:bg-brass" />
-                                <span className="transition-transform group-hover:translate-x-0.5">
+                    <ul className="mt-3 space-y-1.5" role="list">
+                      {cat.services.map((srv) => (
+                        <li key={srv.id}>
+                          <button
+                            type="button"
+                            onClick={() => choose(cat.id, srv.id)}
+                            className="group flex w-full items-start justify-between gap-3 rounded-xl border border-transparent p-2.5 text-left transition-all hover:border-line hover:bg-paper-card"
+                          >
+                            <div className="flex items-start gap-2.5">
+                              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brass/60 transition-colors group-hover:bg-brass" />
+                              <div>
+                                <span className="block text-xs sm:text-[13px] font-semibold text-ink group-hover:text-brass transition-colors">
                                   {srv.name}
                                 </span>
-                              </span>
-                              <ArrowRight className="h-3 w-3 shrink-0 text-brass opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100" />
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
+                                <span className="mt-0.5 block text-[11px] leading-normal text-muted">
+                                  {srv.summary}
+                                </span>
+                              </div>
+                            </div>
+                            <ArrowRight className="mt-1 h-3.5 w-3.5 shrink-0 text-brass opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100" />
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Quick Link Konsultasi */}
+                    <div className="mt-4 border-t border-line/60 pt-3.5">
+                      <button
+                        type="button"
+                        onClick={() => choose(cat.id, cat.services[0].id)}
+                        className="text-link text-xs font-semibold sm:text-sm"
+                      >
+                        <span>Konsultasikan Semua Kebutuhan {cat.label}</span>
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </button>
                     </div>
                   </div>
-
-                  {/* Tindakan Konsultasi */}
-                  <div className="mt-6 border-t border-line/60 pt-4">
-                    <button
-                      type="button"
-                      onClick={() => choose(cat.id, cat.services[0].id)}
-                      className="text-link text-xs font-semibold sm:text-sm"
-                    >
-                      Konsultasikan {cat.label}
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </button>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         {/* Simulasi alur konsultasi */}
