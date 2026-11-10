@@ -110,10 +110,10 @@ export default function Header({ whatsappNumber }: HeaderProps) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Konsultasi via WhatsApp"
-            className="inline-flex h-9 sm:h-10 items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-ink px-2.5 sm:px-4 text-[12px] sm:text-[13px] font-semibold text-text-on-dark transition-all duration-200 hover:bg-ink-soft hover:shadow-xs active:scale-95"
+            className="inline-flex h-9 sm:h-10 items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-ink px-2.5 sm:px-4 text-[11.5px] sm:text-[13px] font-semibold text-text-on-dark transition-all duration-200 hover:bg-ink-soft hover:shadow-xs active:scale-95"
           >
             <WhatsAppIcon className="h-4 w-4 text-brass-light shrink-0" />
-            <span className="hidden sm:inline">WhatsApp</span>
+            <span>WhatsApp</span>
           </a>
 
           <button
