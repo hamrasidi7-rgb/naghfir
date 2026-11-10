@@ -116,9 +116,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-ivory-50 text-charcoal font-sans antialiased selection:bg-gold/25 selection:text-navy">
+      <body className="min-h-screen flex flex-col bg-paper text-ink font-sans antialiased selection:bg-brass-light/40 selection:text-ink">
         <Header whatsappNumber={whatsappNumber} />
-        <main className="flex-grow pt-[68px]">{children}</main>
+        <main className="flex-grow pt-16 sm:pt-[68px]">{children}</main>
         <Footer whatsappNumber={whatsappNumber} />
         <FloatingWhatsApp whatsappNumber={whatsappNumber} />
       </body>
