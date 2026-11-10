@@ -49,7 +49,13 @@ export default function ContactFooterSection({ contact, fullName }: ContactFoote
               persyaratan, dan penjadwalan konsultasi.
             </p>
             <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3">
-              <a href={waHref} target="_blank" rel="noopener noreferrer" className="btn btn-gold justify-center py-3 text-xs sm:text-sm">
+              <a
+                id="footer-whatsapp-cta"
+                href={waHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-gold justify-center py-3 text-xs sm:text-sm"
+              >
                 <WhatsAppIcon className="h-4 w-4" />
                 <span>Hubungi via WhatsApp</span>
               </a>
