@@ -19,26 +19,26 @@ export default function PublicationsPage() {
   const publications = db.publications;
 
   return (
-    <div className="py-12 lg:py-20 bg-[#FDFCFB]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="py-12 lg:py-20 bg-paper">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="mb-12 border-b border-navy/10 pb-8">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-burgundy mb-3">
+        <div className="mb-12 border-b border-line pb-8">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brass mb-3">
             <Link href="/" className="hover:underline">Beranda</Link>
             <span>/</span>
             <span>Publikasi</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-navy tracking-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl font-black text-ink tracking-tight mb-4">
             Publikasi dan Media
           </h1>
-          <p className="text-base sm:text-lg text-charcoal/80 max-w-3xl font-sans">
+          <p className="text-base sm:text-lg text-muted max-w-3xl font-sans">
             Dokumentasi liputan media pers terverifikasi, publikasi ilmiah, artikel telaah, dan monograf hukum.
           </p>
         </div>
 
         {/* Featured Media Reference: Mata Madura News */}
-        <div className="mb-12 p-8 lg:p-10 rounded-2xl bg-[#FAF7F2] border border-navy/15 shadow-sm">
+        <div className="mb-12 p-8 lg:p-10 rounded-2xl bg-paper-card border border-line shadow-sm">
           <div className="flex items-center gap-3 mb-4">
             <span className="px-3 py-1 rounded-full bg-burgundy text-white text-xs font-bold uppercase tracking-wider">
               Liputan Utama Media

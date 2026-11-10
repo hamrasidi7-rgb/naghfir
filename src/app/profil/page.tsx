@@ -23,28 +23,28 @@ export default function ProfilePage() {
   const profile = db.profile;
 
   return (
-    <div className="bg-[#FDFCFB]">
+    <div className="bg-paper">
       {/* Top Biography Section */}
-      <div className="py-12 lg:py-20 border-b border-navy/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-12 lg:py-20 border-b border-line">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Breadcrumb & Title */}
-          <div className="mb-12 border-b border-navy/10 pb-8">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-burgundy mb-3">
+          <div className="mb-12 border-b border-line pb-8">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brass mb-3">
               <Link href="/" className="hover:underline">Beranda</Link>
               <span>/</span>
               <span>Profil & Kredensial Lengkap</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-black text-navy tracking-tight mb-2">
+            <h1 className="text-4xl sm:text-5xl font-black text-ink tracking-tight mb-2">
               {profile.name}
             </h1>
-            <p className="text-sm sm:text-base font-bold text-burgundy mb-3 uppercase tracking-wider">
+            <p className="text-sm sm:text-base font-bold text-brass mb-3 uppercase tracking-wider">
               Notaris & PPAT | Akademisi | Penggerak Sosial
             </p>
-            <p className="text-xl sm:text-2xl text-navy max-w-3xl font-serif font-bold italic mb-2">
+            <p className="text-xl sm:text-2xl text-ink max-w-3xl font-serif font-bold italic mb-2">
               &ldquo;Ilmu, Hukum, dan Pengabdian.&rdquo;
             </p>
-            <p className="text-base text-charcoal/80 max-w-2xl font-sans">
+            <p className="text-base text-muted max-w-2xl font-sans">
               Membangun kepastian hukum, mengembangkan pemikiran, dan mengabdi kepada masyarakat.
             </p>
           </div>
@@ -52,7 +52,7 @@ export default function ProfilePage() {
           {/* Top Portrait & Core Narrative */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-navy/10 aspect-[4/5] bg-white">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-line aspect-[4/5] bg-paper-card">
                 <Image
                   src={profile.heroImage}
                   alt={profile.name}
@@ -62,18 +62,18 @@ export default function ProfilePage() {
                   className="object-cover object-top"
                 />
               </div>
-              <div className="mt-4 p-4 rounded-xl bg-ivory border border-navy/10 text-xs text-charcoal/80 text-center">
-                <span className="font-bold text-navy block">{profile.name}</span>
+              <div className="mt-4 p-4 rounded-xl bg-paper-muted border border-line text-xs text-muted text-center">
+                <span className="font-bold text-ink block">{profile.name}</span>
                 <span>{profile.origin}</span>
               </div>
             </div>
 
-            <div className="lg:col-span-7 space-y-6 text-charcoal/90 text-base sm:text-lg leading-relaxed">
-              <div className="p-6 rounded-2xl bg-[#FAF7F2] border border-navy/10">
-                <span className="text-xs font-bold uppercase tracking-wider text-burgundy block mb-2">
+            <div className="lg:col-span-7 space-y-6 text-ink/90 text-base sm:text-lg leading-relaxed">
+              <div className="p-6 rounded-2xl bg-paper-card border border-line">
+                <span className="text-xs font-bold uppercase tracking-wider text-brass block mb-2">
                   Pondasi Karakter Santri & Intelektual
                 </span>
-                <p className="text-base text-navy font-semibold leading-relaxed">
+                <p className="text-base text-ink font-semibold leading-relaxed">
                   {profile.aboutIntro}
                 </p>
               </div>
@@ -135,20 +135,20 @@ export default function ProfilePage() {
       />
 
       {/* Bottom CTA to Journey Page */}
-      <div className="py-14 bg-[#FDFCFB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 rounded-3xl bg-navy text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+      <div className="py-14 bg-paper">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="p-8 sm:p-12 rounded-3xl bg-ink text-text-on-dark flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-line">
             <div className="space-y-2">
-              <h3 className="text-2xl font-bold">
+              <h3 className="text-2xl font-bold font-serif text-white">
                 Ingin Menelusuri Linimasa Perjalanan Hidup?
               </h3>
-              <p className="text-sm text-ivory/80">
+              <p className="text-sm text-text-on-dark/80">
                 Lihat 8 fase utama perjalanan dari Desa Campaka, Pasongsongan hingga pengukuhan Doktor dan Notaris.
               </p>
             </div>
             <Link
               href="/perjalanan"
-              className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-burgundy hover:bg-burgundy-700 text-white font-semibold text-sm transition-all"
+              className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brass-btn hover:bg-[#A87E2E] text-ink font-semibold text-sm transition-all"
             >
               <span>Buka Linimasa Perjalanan (8 Fase)</span>
               <ArrowRight className="w-4 h-4" />

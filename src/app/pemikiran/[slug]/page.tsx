@@ -61,7 +61,7 @@ export default function ArticleDetailPage({ params }: ArticlePageProps) {
   };
 
   return (
-    <article className="py-12 lg:py-20 bg-[#FDFCFB]">
+    <article className="py-12 lg:py-20 bg-paper">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

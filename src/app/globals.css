@@ -5,18 +5,31 @@
 :root {
   --font-manrope: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-playfair: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --color-navy: #0F1D33;
-  --color-gold: #C5A059;
-  --color-ivory: #F6F2E9;
+  --color-ink: #111C2D;
+  --color-ink-soft: #1E2D42;
+  --color-paper: #FBF9F4;
+  --color-paper-card: #FFFFFF;
+  --color-paper-muted: #F3EEE3;
+  --color-line: #E4DEC9;
+  --color-brass: #9E7428;
+  --color-brass-light: #E5CA85;
+  --color-brass-btn: #B88D3B;
+  --color-muted: #525866;
+  --color-text-on-dark: #EAEFF5;
+
+  /* Legacy variables harmonized */
+  --color-navy: #111C2D;
+  --color-gold: #9E7428;
+  --color-ivory: #FBF9F4;
   --color-white: #FFFFFF;
-  --color-charcoal: #1F242D;
+  --color-charcoal: #525866;
 }
 
 html {
   scroll-behavior: smooth;
   font-family: var(--font-manrope);
-  background-color: #FCFBF8;
-  color: #1F242D;
+  background-color: #FBF9F4;
+  color: #111C2D;
 }
 
 /* Custom editorial typography & aesthetics */
@@ -28,7 +41,7 @@ html {
 .heading-editorial {
   font-family: var(--font-playfair);
   letter-spacing: -0.015em;
-  color: #0F1D33;
+  color: #111C2D;
 }
 
 /* Elegant scrollbar */
@@ -37,19 +50,19 @@ html {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F6F2E9;
+  background: #FBF9F4;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0F1D33;
+  background: #111C2D;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C5A059;
+  background: #9E7428;
 }
 
 /* Subtle editorial border */
 .editorial-border {
-  border: 1px solid rgba(15, 29, 51, 0.12);
+  border: 1px solid #E4DEC9;
 }
 
 /* Angka tegak (lining) pada huruf serif — Playfair default memakai angka old-style */
@@ -57,37 +70,37 @@ html {
   font-variant-numeric: lining-nums;
 }
 
-/* ===== Komponen dasar beranda (prototipe desain) ===== */
+/* ===== Komponen dasar beranda (Design System Refinement) ===== */
 @layer components {
   .page-container {
     @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
   }
   .eyebrow {
-    @apply inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-brass-deep;
+    @apply inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-brass;
   }
   .eyebrow::before {
     content: '';
     @apply block h-px w-7 bg-brass;
   }
   .section-title {
-    @apply font-serif text-[32px] font-semibold leading-[1.12] tracking-[-0.01em] text-ink sm:text-[40px] lg:text-[44px];
+    @apply font-serif text-[32px] font-semibold leading-[1.15] tracking-[-0.015em] text-ink sm:text-[38px] lg:text-[42px];
   }
   .btn {
     @apply inline-flex h-12 items-center justify-center gap-2.5 rounded-full px-6 text-sm font-semibold transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass disabled:cursor-not-allowed disabled:opacity-40;
   }
   .btn-gold {
-    @apply bg-brass-button text-ink hover:bg-[#B48A3C];
+    @apply bg-brass-btn text-ink font-semibold hover:bg-[#A87E2E] transition-colors shadow-sm;
   }
   .btn-ink {
-    @apply bg-ink text-white hover:bg-ink-soft;
+    @apply bg-ink text-text-on-dark hover:bg-ink-soft transition-colors;
   }
   .btn-outline {
-    @apply border border-ink/25 bg-transparent text-ink hover:border-ink hover:bg-white;
+    @apply border border-line bg-transparent text-ink hover:border-ink hover:bg-paper-card transition-colors;
   }
   .btn-outline-light {
-    @apply border border-white/30 bg-transparent text-white hover:border-white hover:bg-white/5;
+    @apply border border-white/20 bg-transparent text-text-on-dark hover:border-white/40 hover:bg-white/5 transition-colors;
   }
   .text-link {
-    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-ink underline decoration-brass/60 decoration-1 underline-offset-[6px] transition-colors hover:text-brass-deep hover:decoration-brass;
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-ink underline decoration-brass/60 decoration-1 underline-offset-[6px] transition-colors hover:text-brass hover:decoration-brass;
   }
 }

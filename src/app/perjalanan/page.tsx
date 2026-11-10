@@ -35,10 +35,10 @@ export default function JourneyPage() {
   };
 
   return (
-    <div className="bg-[#FDFCFB]">
+    <div className="bg-paper">
       {/* Breadcrumb Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-        <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-burgundy">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+        <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brass">
           <Link href="/" className="hover:underline">Beranda</Link>
           <span>/</span>
           <span>Linimasa Perjalanan Hidup (8 Fase)</span>
@@ -52,18 +52,18 @@ export default function JourneyPage() {
       <div className="py-14 lg:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center max-w-3xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest text-burgundy block mb-2">
+            <span className="text-xs font-bold uppercase tracking-widest text-brass block mb-2">
               Uraian Kronologis Lengkap
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-navy tracking-tight mb-3">
+            <h2 className="text-3xl sm:text-4xl font-black text-ink tracking-tight mb-3">
               8 Tonggak Utama Kehidupan & Pengabdian
             </h2>
-            <p className="text-sm sm:text-base text-charcoal/80 leading-relaxed font-sans">
+            <p className="text-sm sm:text-base text-muted leading-relaxed font-sans">
               Setiap etape kehidupan membentuk fondasi nilai: dari kesahajaan pedesaan Pasongsongan, tempaan adab pesantren, pergulatan intelektual di kampus, hingga integritas di meja akta dan pengabdian masyarakat.
             </p>
           </div>
 
-          <div className="relative before:absolute before:inset-0 before:left-6 md:before:left-1/2 before:-translate-x-1/2 before:w-0.5 before:bg-navy/15">
+          <div className="relative before:absolute before:inset-0 before:left-6 md:before:left-1/2 before:-translate-x-1/2 before:w-0.5 before:bg-line">
             {timeline.map((item, index) => {
               const isEven = index % 2 === 0;
               const Icon = getCategoryIcon(item.category);
@@ -78,7 +78,7 @@ export default function JourneyPage() {
                 >
                   {/* Center Badge Dot */}
                   <div
-                    className={`absolute left-6 md:left-1/2 -translate-x-1/2 top-4 w-10 h-10 rounded-full flex items-center justify-center border-4 border-[#FDFCFB] shadow-md z-10 ${
+                    className={`absolute left-6 md:left-1/2 -translate-x-1/2 top-4 w-10 h-10 rounded-full flex items-center justify-center border-4 border-paper shadow-md z-10 ${
                       isMilestone ? 'bg-burgundy text-white' : 'bg-navy text-white'
                     }`}
                   >

@@ -51,20 +51,20 @@ export default function ThoughtsPage({
   }
 
   return (
-    <div className="py-12 lg:py-20 bg-[#FDFCFB]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="py-12 lg:py-20 bg-paper">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="mb-12 border-b border-navy/10 pb-8">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-burgundy mb-3">
+        <div className="mb-12 border-b border-line pb-8">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brass mb-3">
             <Link href="/" className="hover:underline">Beranda</Link>
             <span>/</span>
             <span>Ruang Pemikiran</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-navy tracking-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl font-black text-ink tracking-tight mb-4">
             Pemikiran dan Gagasan
           </h1>
-          <p className="text-base sm:text-lg text-charcoal/80 max-w-3xl font-sans">
+          <p className="text-base sm:text-lg text-muted max-w-3xl font-sans">
             Gagasan intelektual, analisis regulasi, dan telaah kritis mengenai hukum kenotariatan, hak tanah agraria, ekonomi syariah, serta kemaslahatan masyarakat Sumenep.
           </p>
         </div>

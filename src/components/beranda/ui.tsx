@@ -5,7 +5,7 @@ export function Monogram({ className = 'text-[34px]' }: { className?: string }) 
   return (
     <span
       aria-hidden="true"
-      className={`select-none bg-gradient-to-b from-[#D5B05C] via-[#B88B34] to-[#8F6820] bg-clip-text pr-0.5 font-serif font-bold italic leading-none text-transparent ${className}`}
+      className={`select-none bg-gradient-to-b from-[#E5CA85] via-[#B88D3B] to-[#9E7428] bg-clip-text pr-0.5 font-serif font-bold italic leading-none text-transparent ${className}`}
     >
       N
     </span>

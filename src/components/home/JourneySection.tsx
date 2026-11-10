@@ -35,8 +35,8 @@ export default function JourneySection({ timeline }: JourneySectionProps) {
   };
 
   return (
-    <section className="py-20 lg:py-28 bg-[#FDFCFB] border-b border-navy/10 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 lg:py-28 bg-paper border-b border-line relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header & Controls */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -202,7 +202,7 @@ export default function JourneySection({ timeline }: JourneySectionProps) {
               <div key={item.id} className="relative pl-12">
                 {/* Bullet */}
                 <div
-                  className={`absolute left-3 -translate-x-1/2 top-1.5 w-6 h-6 rounded-full flex items-center justify-center border-2 border-[#FDFCFB] shadow-sm z-10 ${
+                  className={`absolute left-3 -translate-x-1/2 top-1.5 w-6 h-6 rounded-full flex items-center justify-center border-2 border-paper shadow-sm z-10 ${
                     isMilestoneHighlight ? 'bg-burgundy text-white' : 'bg-navy text-white'
                   }`}
                 >
