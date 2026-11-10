@@ -15,8 +15,10 @@ export const WHATSAPP_DUMMY_NUMBER = '6280000000000';
 /** Placeholder lama yang mungkin masih tersimpan di data/CMS. */
 const LEGACY_PLACEHOLDER = 'GANTI_DENGAN_NOMOR_RESMI';
 
+export const WHATSAPP_OFFICIAL_NUMBER = '6282228598244';
+
 export const WHATSAPP_NUMBER =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || WHATSAPP_DUMMY_NUMBER;
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || WHATSAPP_OFFICIAL_NUMBER;
 
 export const WHATSAPP_MESSAGES = {
   header:

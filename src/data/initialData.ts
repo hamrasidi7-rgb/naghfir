@@ -906,7 +906,7 @@ Melalui peran PPAT dan dialog edukatif kemasyarakatan, kita mendorong masyarakat
   ],
   contact: {
     email: "kontak@naghfir.id",
-    whatsappNumber: "",
+    whatsappNumber: "+62 822-2859-8244",
     phoneNote: "Pelayanan resmi kenotariatan dan konsultasi akademik terjadwal melalui kantor resmi.",
     location: "Sumenep, Madura, Indonesia",
     officeAddress: "Jl. Jokotole – Perum Griya Berkat Regency Gg. III No. 24 (Lingkar Barat), Kec. Batuan, Kab. Sumenep, Jawa Timur",
