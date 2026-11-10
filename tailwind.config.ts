@@ -9,6 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Token desain beranda (Premium Minimalist Legal & Personal Branding)
+        ink: { DEFAULT: "#142134", soft: "#22324A" },
+        paper: { DEFAULT: "#FAF7F0", deep: "#F3EEE3" },
+        line: "#E5DEC9",
+        muted: "#5B6170",
+        brass: { DEFAULT: "#A67C32", deep: "#8B6526", light: "#E4C77F", button: "#C29A4B" },
         navy: {
           DEFAULT: "#0F1D33",
           50: "#F0F4F9",

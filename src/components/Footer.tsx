@@ -48,8 +48,9 @@ export default function Footer({ whatsappNumber }: FooterProps) {
             </h4>
             <ul className="space-y-2 text-ivory/80">
               <li><Link href="/#beranda" className="hover:text-gold transition-colors">Beranda</Link></li>
-              <li><Link href="/#tentang-saya" className="hover:text-gold transition-colors">Tentang Saya</Link></li>
               <li><Link href="/#layanan" className="hover:text-gold transition-colors">Layanan</Link></li>
+              <li><Link href="/#konsultasi" className="hover:text-gold transition-colors">Konsultasi</Link></li>
+              <li><Link href="/#tentang-saya" className="hover:text-gold transition-colors">Tentang Saya</Link></li>
               <li><Link href="/#pengabdian" className="hover:text-gold transition-colors">Pengabdian</Link></li>
               <li><Link href="/#pemikiran" className="hover:text-gold transition-colors">Pemikiran</Link></li>
               <li><Link href="/#kontak" className="hover:text-gold transition-colors">Kontak</Link></li>

@@ -51,3 +51,43 @@ html {
 .editorial-border {
   border: 1px solid rgba(15, 29, 51, 0.12);
 }
+
+/* Angka tegak (lining) pada huruf serif — Playfair default memakai angka old-style */
+.font-serif {
+  font-variant-numeric: lining-nums;
+}
+
+/* ===== Komponen dasar beranda (prototipe desain) ===== */
+@layer components {
+  .page-container {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-brass-deep;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply block h-px w-7 bg-brass;
+  }
+  .section-title {
+    @apply font-serif text-[32px] font-semibold leading-[1.12] tracking-[-0.01em] text-ink sm:text-[40px] lg:text-[44px];
+  }
+  .btn {
+    @apply inline-flex h-12 items-center justify-center gap-2.5 rounded-full px-6 text-sm font-semibold transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-gold {
+    @apply bg-brass-button text-ink hover:bg-[#B48A3C];
+  }
+  .btn-ink {
+    @apply bg-ink text-white hover:bg-ink-soft;
+  }
+  .btn-outline {
+    @apply border border-ink/25 bg-transparent text-ink hover:border-ink hover:bg-white;
+  }
+  .btn-outline-light {
+    @apply border border-white/30 bg-transparent text-white hover:border-white hover:bg-white/5;
+  }
+  .text-link {
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-ink underline decoration-brass/60 decoration-1 underline-offset-[6px] transition-colors hover:text-brass-deep hover:decoration-brass;
+  }
+}
